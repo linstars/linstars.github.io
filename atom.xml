@@ -1,20 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Hexo</title>
+  <title>Lin-Blog</title>
   
   
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-11-27T01:36:42.559Z</updated>
+  <updated>2023-11-27T04:30:19.077Z</updated>
   <id>http://example.com/</id>
   
   <author>
-    <name>John Doe</name>
+    <name>Lin-Blog</name>
     
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>第1篇文章java</title>
+    <link href="http://example.com/2023/11/27/%E7%AC%AC1%E7%AF%87%E6%96%87%E7%AB%A0java/"/>
+    <id>http://example.com/2023/11/27/%E7%AC%AC1%E7%AF%87%E6%96%87%E7%AB%A0java/</id>
+    <published>2023-11-27T03:24:37.000Z</published>
+    <updated>2023-11-27T04:30:19.077Z</updated>
+    
+    
+    
+    
+    <category term="java" scheme="http://example.com/categories/java/"/>
+    
+    
+    <category term="java" scheme="http://example.com/tags/java/"/>
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>

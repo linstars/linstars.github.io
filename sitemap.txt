@@ -1,2 +1,5 @@
+http://example.com/2023/11/27/%E7%AC%AC1%E7%AF%87%E6%96%87%E7%AB%A0java/
 http://example.com/2023/11/27/hello-world/
 http://example.com/
+http://example.com/tags/java/
+http://example.com/categories/java/
