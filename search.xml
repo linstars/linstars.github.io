@@ -17,6 +17,19 @@
     
     
     <entry>
+      <title>ctf</title>
+      <link href="/2024/11/25/ctf/"/>
+      <url>/2024/11/25/ctf/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Sqlmap注入参数"><a href="#Sqlmap注入参数" class="headerlink" title="Sqlmap注入参数"></a>Sqlmap注入参数</h2><h3 id="常用参数"><a href="#常用参数" class="headerlink" title="常用参数"></a>常用参数</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -u &quot;地址&quot; --current-db --batch</span><br><span class="line">sqlmap -u &quot;地址&quot; -D 库名 --tables --batch</span><br><span class="line">sqlmap -u &quot;地址&quot; -D 库名 -T 表名 --dump --batch</span><br></pre></td></tr></table></figure><ul><li>–current-db获取当前使用的数据库</li><li>–batch保持默认选项</li><li>-D参数用来指定库名</li><li>–tables用来获取-D参数指定的库下的所有表名</li><li>-T用来指定表名</li><li>–dump表示获取表的数据</li></ul>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>C例题</title>
       <link href="/2024/11/25/C%E4%BE%8B%E9%A2%98/"/>
       <url>/2024/11/25/C%E4%BE%8B%E9%A2%98/</url>
