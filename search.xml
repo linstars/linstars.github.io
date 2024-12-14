@@ -11,19 +11,19 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /tmp</span><br><span class="line">tar zxvf undefined.gz</span><br><span class="line"><span class="built_in">cd</span> 1panel-v1.10.21-lts-linux-amd64/</span><br><span class="line"><span class="comment"># 运行安装脚本</span></span><br><span class="line">/bin/bash install.sh</span><br></pre></td></tr></table></figure>
 
 <p>设置端口</p>
-<p><img src="/images/halo/2.png"></p>
+<p><img src="https://bu.dusays.com/2024/12/14/675da3cfb02d3.png"></p>
 <p>设置安全入口</p>
-<p><img src="/images/halo/3.png"></p>
+<p><img src="https://bu.dusays.com/2024/12/14/675da3cfa7bf4.png"></p>
 <p>设置面板用户名和密码（密码最少8位）</p>
-<p><img src="/images/halo/4.png"></p>
+<p><img src="https://bu.dusays.com/2024/12/14/675da3cfa97db.png"></p>
 <p>1panel安装完成</p>
 <p>1panel命令</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl start 1panel	<span class="comment">#启动</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="/images/halo/5.png"></p>
+<p><img src="https://bu.dusays.com/2024/12/14/675da3cfb2caf.png"></p>
 <p>将外网地址复制到浏览器打开登录</p>
 <p>我得登陆面板为<a href="http://192.168.122.85:19625/4c32965de7">http://192.168.122.85:19625/4c32965de7</a></p>
-<p><img src="/images/halo/6.png"></p>
+<p><img src="https://bu.dusays.com/2024/12/14/675da3d098fbc.png"></p>
 <blockquote>
 <p>参考<a href="https://docs.halo.run/getting-started/install/docker">使用 Docker 部署 | Halo 文档</a></p>
 </blockquote>
@@ -34,13 +34,15 @@
 <p>访问hexo后台需加上8090端口和<code>/console</code></p>
 <p>例如<code>http://192.168.122.85:8090/console</code></p>
 <p>初始化页面</p>
-<p><img src="/images/halo/7.png"></p>
+<p><img src="https://bu.dusays.com/2024/12/14/675da3cfac458.png"></p>
 ]]></content>
       <categories>
-        <category>halo</category>
+        <category>服务器</category>
+        <category>博客搭建</category>
       </categories>
       <tags>
         <tag>halo</tag>
+        <tag>1panel</tag>
       </tags>
   </entry>
   <entry>
@@ -55,17 +57,17 @@
 <ul>
 <li>效率低下，管理麻烦</li>
 </ul>
-<p><img src="/images/access/2.png"></p>
+<p><img src="https://bu.dusays.com/2024/12/14/675d9e725dd7e.png"></p>
 <p>文件记录</p>
 <ul>
 <li>无法处理大量数据</li>
 </ul>
-<p><img src="/images/access/3.png"></p>
+<p><img src="https://bu.dusays.com/2024/12/14/675d9e72f104a.png"></p>
 <p>数据库系统</p>
 <ul>
 <li>可以存储大量数据，方便关联数据处理</li>
 </ul>
-<p><img src="/images/access/4.png"></p>
+<p><img src="https://bu.dusays.com/2024/12/14/675d9e6ec6555.png"></p>
 <h1 id="Access开始"><a href="#Access开始" class="headerlink" title="Access开始"></a>Access开始</h1><h2 id="数据库相关概念"><a href="#数据库相关概念" class="headerlink" title="数据库相关概念"></a>数据库相关概念</h2><ul>
 <li>数据(Data):数字、文字、图像、音频、视频等。</li>
 <li>数据库(DataBase)按特定结构存储数据的文件</li>
@@ -89,9 +91,9 @@
 <p>宏：非编程方式实现任务自动化</p>
 <p>vba：通过编程方式实现更复杂的自动化功能</p>
 <p>宏和vba这两个功能都是为了帮助我们在处理大量数据的时候能够实现作业的自动化，不需要我们插手，它可以自动完成我们分配的任务</p>
-<h2 id="关系数据库基本概念"><a href="#关系数据库基本概念" class="headerlink" title="关系数据库基本概念"></a>关系数据库基本概念</h2><p> <img src="/images/access/5.png"></p>
-<p> <img src="/images/access/6.png"></p>
-<p> <img src="/images/access/7.png"></p>
+<h2 id="关系数据库基本概念"><a href="#关系数据库基本概念" class="headerlink" title="关系数据库基本概念"></a>关系数据库基本概念</h2><p> <img src="https://bu.dusays.com/2024/12/14/675d9e6df1724.png"></p>
+<p> <img src="https://bu.dusays.com/2024/12/14/675d9e6f96b2e.png"></p>
+<p> <img src="https://bu.dusays.com/2024/12/14/675d9e70badf8.png"></p>
 <h2 id="关系数据模型"><a href="#关系数据模型" class="headerlink" title="关系数据模型"></a>关系数据模型</h2><p><strong>表间关系</strong></p>
 <p>一对一：员工与身份证信息</p>
 <p>一对多：部门与员工</p>
@@ -166,8 +168,13 @@
 <p>（7）单击“保存”按钮，打开“另存为”对话框，在其中输入表名称：课程，单击“确定”按钮完成表的创建。</p>
 <p>（8）新表创建完成之后，如果需要对表结构进行修改，则可以切换到设计视图，修改之后重新保存即可。</p>
 ]]></content>
+      <categories>
+        <category>数据库</category>
+        <category>Access</category>
+      </categories>
       <tags>
         <tag>access</tag>
+        <tag>数据库</tag>
       </tags>
   </entry>
   <entry>
@@ -209,7 +216,8 @@
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"> <span class="comment">&lt;!-- 自定义右键 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css"><span class="selector-tag">a</span> &#123;<span class="attribute">text-decoration</span>: none;&#125;</span></span><br><span class="line"><span class="language-css"><span class="selector-tag">div</span><span class="selector-class">.usercm</span>&#123;<span class="attribute">background-repeat</span>:no-repeat;<span class="attribute">background-position</span>:center center;<span class="attribute">background-size</span>:cover;<span class="attribute">background-color</span>:<span class="number">#fff</span>;<span class="attribute">font-size</span>:<span class="number">13px</span><span class="meta">!important</span>;<span class="attribute">width</span>:<span class="number">130px</span>;-moz-<span class="attribute">box-shadow</span>:<span class="number">1px</span> <span class="number">1px</span> <span class="number">3px</span> rgba</span></span><br><span class="line"><span class="language-css">(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,.<span class="number">3</span>);<span class="attribute">box-shadow</span>:<span class="number">0px</span> <span class="number">0px</span> <span class="number">15px</span> <span class="number">#333</span>;<span class="attribute">position</span>:absolute;<span class="attribute">display</span>:none;<span class="attribute">z-index</span>:<span class="number">10000</span>;<span class="attribute">opacity</span>:<span class="number">0.9</span>;<span class="attribute">border-radius</span>: <span class="number">5px</span>;&#125;</span></span><br><span class="line"><span class="language-css"><span class="selector-tag">div</span><span class="selector-class">.usercm</span> <span class="selector-tag">ul</span>&#123;<span class="attribute">list-style-type</span>:none;<span class="attribute">list-style-position</span>:outside;<span class="attribute">margin</span>:<span class="number">0px</span>;<span class="attribute">padding</span>:<span class="number">0px</span>;<span class="attribute">display</span>:block&#125;</span></span><br><span class="line"><span class="language-css"><span class="selector-tag">div</span><span class="selector-class">.usercm</span> <span class="selector-tag">ul</span> <span class="selector-tag">li</span>&#123;<span class="attribute">margin</span>:<span class="number">0px</span>;<span class="attribute">padding</span>:<span class="number">0px</span>;<span class="attribute">line-height</span>:<span class="number">35px</span>;&#125;</span></span><br><span class="line"><span class="language-css"><span class="selector-tag">div</span><span class="selector-class">.usercm</span> <span class="selector-tag">ul</span> <span class="selector-tag">li</span> <span class="selector-tag">a</span>&#123;<span class="attribute">color</span>:<span class="number">#666</span>;<span class="attribute">padding</span>:<span class="number">0</span> <span class="number">15px</span>;<span class="attribute">display</span>:block&#125;</span></span><br><span class="line"><span class="language-css"><span class="selector-tag">div</span><span class="selector-class">.usercm</span> <span class="selector-tag">ul</span> <span class="selector-tag">li</span> <span class="selector-tag">a</span><span class="selector-pseudo">:hover</span>&#123;<span class="attribute">color</span>:<span class="number">#fff</span>;<span class="attribute">background</span>:<span class="built_in">rgba</span>(<span class="number">9</span>,<span class="number">145</span>,<span class="number">113</span>,<span class="number">0.88</span>);<span class="attribute">border-radius</span>: <span class="number">5px</span>&#125;</span></span><br><span class="line"><span class="language-css"><span class="selector-tag">div</span><span class="selector-class">.usercm</span> <span class="selector-tag">ul</span> <span class="selector-tag">li</span> <span class="selector-tag">a</span> <span class="selector-tag">i</span>&#123;<span class="attribute">margin-right</span>:<span class="number">10px</span>&#125;</span></span><br><span class="line"><span class="language-css"><span class="selector-tag">a</span><span class="selector-class">.disabled</span>&#123;<span class="attribute">color</span>:<span class="number">#c8c8c8</span><span class="meta">!important</span>;<span class="attribute">cursor</span><span class="selector-pseudo">:not</span>-allowed&#125;</span></span><br><span class="line"><span class="language-css"><span class="selector-tag">a</span><span class="selector-class">.disabled</span><span class="selector-pseudo">:hover</span>&#123;<span class="attribute">background-color</span>:<span class="built_in">rgba</span>(<span class="number">255</span>,<span class="number">11</span>,<span class="number">11</span>,<span class="number">0</span>)<span class="meta">!important</span>&#125;</span></span><br><span class="line"><span class="language-css"><span class="selector-tag">div</span><span class="selector-class">.usercm</span>&#123;<span class="attribute">background</span>:<span class="number">#fff</span> <span class="meta">!important</span>;&#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;usercm&quot;</span> <span class="attr">style</span>=<span class="string">&quot;left: 199px; top: 5px; display: none;&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://bbling.cc/&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">&quot;fa fa-home fa-fw&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span>首页<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;javascript:void(0);&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;getSelect();&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">&quot;fa fa-file fa-fw&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span>复制<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;javascript:void(0);&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;baiduSearch();&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">&quot;fa fa-search fa-fw&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span>Bing一下<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;javascript:history.go(1);&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">&quot;fa fa-arrow-right fa-fw&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span>前进<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;javascript:history.go(-1);&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">&quot;fa fa-arrow-left fa-fw&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span>后退<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">style</span>=<span class="string">&quot;border-bottom:1px solid gray&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;javascript:window.location.reload();&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">&quot;fa fa-refresh fa-fw&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span>刷新<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://bbling.cc/link&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">&quot;fa fa-user fa-fw&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span>和我当邻居<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://bbling.cc&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">&quot;fa fa-pencil fa-fw&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span>给我留言吧<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.staticfile.org/layer/3.1.1/layer.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">(<span class="keyword">function</span>(<span class="params">a</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">a.<span class="title function_">extend</span>(&#123;</span></span><br><span class="line"><span class="language-javascript"><span class="attr">mouseMoveShow</span>: <span class="keyword">function</span>(<span class="params">b</span>) &#123;</span></span><br><span class="line"><span class="language-javascript"><span class="keyword">var</span> d = <span class="number">0</span>,</span></span><br><span class="line"><span class="language-javascript">c = <span class="number">0</span>,</span></span><br><span class="line"><span class="language-javascript">h = <span class="number">0</span>,</span></span><br><span class="line"><span class="language-javascript">k = <span class="number">0</span>,</span></span><br><span class="line"><span class="language-javascript">e = <span class="number">0</span>,</span></span><br><span class="line"><span class="language-javascript">f = <span class="number">0</span>;</span></span><br><span class="line"><span class="language-javascript"><span class="title function_">a</span>(<span class="variable language_">window</span>).<span class="title function_">mousemove</span>(<span class="keyword">function</span>(<span class="params">g</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">d = <span class="title function_">a</span>(<span class="variable language_">window</span>).<span class="title function_">width</span>();</span></span><br><span class="line"><span class="language-javascript">c = <span class="title function_">a</span>(<span class="variable language_">window</span>).<span class="title function_">height</span>();</span></span><br><span class="line"><span class="language-javascript">h = g.<span class="property">clientX</span>;</span></span><br><span class="line"><span class="language-javascript">k = g.<span class="property">clientY</span>;</span></span><br><span class="line"><span class="language-javascript">e = g.<span class="property">pageX</span>;</span></span><br><span class="line"><span class="language-javascript">f = g.<span class="property">pageY</span>;</span></span><br><span class="line"><span class="language-javascript">h + <span class="title function_">a</span>(b).<span class="title function_">width</span>() &gt;= d &amp;&amp; (e = e - <span class="title function_">a</span>(b).<span class="title function_">width</span>() - <span class="number">5</span>);</span></span><br><span class="line"><span class="language-javascript">k + <span class="title function_">a</span>(b).<span class="title function_">height</span>() &gt;= c &amp;&amp; (f = f - <span class="title function_">a</span>(b).<span class="title function_">height</span>() - <span class="number">5</span>);</span></span><br><span class="line"><span class="language-javascript"><span class="title function_">a</span>(<span class="string">&quot;html&quot;</span>).<span class="title function_">on</span>(&#123;</span></span><br><span class="line"><span class="language-javascript"><span class="attr">contextmenu</span>: <span class="keyword">function</span>(<span class="params">c</span>) &#123;</span></span><br><span class="line"><span class="language-javascript"><span class="number">3</span> == c.<span class="property">which</span> &amp;&amp; <span class="title function_">a</span>(b).<span class="title function_">css</span>(&#123;</span></span><br><span class="line"><span class="language-javascript"><span class="attr">left</span>: e,</span></span><br><span class="line"><span class="language-javascript"><span class="attr">top</span>: f</span></span><br><span class="line"><span class="language-javascript">&#125;).<span class="title function_">show</span>()</span></span><br><span class="line"><span class="language-javascript">&#125;,</span></span><br><span class="line"><span class="language-javascript"><span class="attr">click</span>: <span class="keyword">function</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript"><span class="title function_">a</span>(b).<span class="title function_">hide</span>()</span></span><br><span class="line"><span class="language-javascript">&#125;</span></span><br><span class="line"><span class="language-javascript">&#125;)</span></span><br><span class="line"><span class="language-javascript">&#125;)</span></span><br><span class="line"><span class="language-javascript">&#125;,</span></span><br><span class="line"><span class="language-javascript"><span class="attr">disabledContextMenu</span>: <span class="keyword">function</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript"><span class="variable language_">window</span>.<span class="property">oncontextmenu</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript"><span class="keyword">return</span> !<span class="number">1</span></span></span><br><span class="line"><span class="language-javascript">&#125;</span></span><br><span class="line"><span class="language-javascript">&#125;</span></span><br><span class="line"><span class="language-javascript">&#125;)</span></span><br><span class="line"><span class="language-javascript">&#125;)(jQuery);</span></span><br><span class="line"><span class="language-javascript"> </span></span><br><span class="line"><span class="language-javascript"><span class="keyword">function</span> <span class="title function_">getSelect</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript"><span class="string">&quot;&quot;</span> == (<span class="variable language_">window</span>.<span class="property">getSelection</span> ? <span class="variable language_">window</span>.<span class="title function_">getSelection</span>() : <span class="variable language_">document</span>.<span class="property">selection</span>.<span class="title function_">createRange</span>().<span class="property">text</span>) ? layer.<span class="title function_">msg</span>(<span class="string">&quot;请选择需要复制的内容！&quot;</span>) : <span class="variable language_">document</span>.<span class="title function_">execCommand</span>(<span class="string">&quot;Copy&quot;</span>)</span></span><br><span class="line"><span class="language-javascript">&#125;</span></span><br><span class="line"><span class="language-javascript"><span class="keyword">function</span> <span class="title function_">baiduSearch</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript"><span class="keyword">var</span> a = <span class="variable language_">window</span>.<span class="property">getSelection</span> ? <span class="variable language_">window</span>.<span class="title function_">getSelection</span>() : <span class="variable language_">document</span>.<span class="property">selection</span>.<span class="title function_">createRange</span>().<span class="property">text</span>;</span></span><br><span class="line"><span class="language-javascript"><span class="string">&quot;&quot;</span> == a ? layer.<span class="title function_">msg</span>(<span class="string">&quot;请选择需要Bing的内容！&quot;</span>) : <span class="variable language_">window</span>.<span class="title function_">open</span>(<span class="string">&quot;https://cn.bing.com/search?q=&quot;</span> + a)</span></span><br><span class="line"><span class="language-javascript">&#125;</span></span><br><span class="line"><span class="language-javascript">$(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript"><span class="keyword">for</span> (<span class="keyword">var</span> a = navigator.<span class="property">userAgent</span>, b = <span class="string">&quot;Android;iPhone;SymbianOS;Windows Phone;iPad;iPod&quot;</span>.<span class="title function_">split</span>(<span class="string">&quot;;&quot;</span>), d = !<span class="number">0</span>, c = <span class="number">0</span>; c &lt; b.<span class="property">length</span>; c++) <span class="keyword">if</span> (<span class="number">0</span> &lt; a.<span class="title function_">indexOf</span>(b[c])) &#123;</span></span><br><span class="line"><span class="language-javascript">d = !<span class="number">1</span>;</span></span><br><span class="line"><span class="language-javascript"><span class="keyword">break</span></span></span><br><span class="line"><span class="language-javascript">&#125;</span></span><br><span class="line"><span class="language-javascript">d &amp;&amp; ($.<span class="title function_">mouseMoveShow</span>(<span class="string">&quot;.usercm&quot;</span>), $.<span class="title function_">disabledContextMenu</span>())</span></span><br><span class="line"><span class="language-javascript">&#125;);</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>wordpress</category>
+        <category>关于博客</category>
+        <category>wordpress美化</category>
       </categories>
       <tags>
         <tag>wordpress</tag>
@@ -258,35 +266,49 @@
 
 ]]></content>
       <categories>
-        <category>c</category>
+        <category>计算机编程</category>
+        <category>C</category>
       </categories>
       <tags>
         <tag>c</tag>
+        <tag>算法</tag>
       </tags>
   </entry>
   <entry>
     <title>ctf</title>
     <url>/2024/11/25/ctf/</url>
-    <content><![CDATA[<h2 id="Sqlmap注入参数"><a href="#Sqlmap注入参数" class="headerlink" title="Sqlmap注入参数"></a>Sqlmap注入参数</h2><h3 id="常用参数"><a href="#常用参数" class="headerlink" title="常用参数"></a>常用参数</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sqlmap -u &quot;地址&quot; --current-db --batch</span><br><span class="line">sqlmap -u &quot;地址&quot; -D 库名 --tables --batch</span><br><span class="line">sqlmap -u &quot;地址&quot; -D 库名 -T 表名 --dump --batch</span><br></pre></td></tr></table></figure>
-
+    <content><![CDATA[<h1 id="Audacity"><a href="#Audacity" class="headerlink" title="Audacity"></a><strong>Audacity</strong></h1><p>使用像Audacity这样的音频处理软件打开文件，然后可以在音道的最上边看到一些特殊的:</p>
 <ul>
-<li>–current-db获取当前使用的数据库</li>
-<li>–batch保持默认选项</li>
-<li>-D参数用来指定库名</li>
-<li>–tables用来获取-D参数指定的库下的所有表名</li>
-<li>-T用来指定表名</li>
-<li>–dump表示获取表的数据</li>
+<li><a href="https://iboxgalileogiftedschoolor-my.sharepoint.com/personal/wangshusong_auooo_com/_layouts/15/guestaccess.aspx?docid=0f7d6900c9d0e49f6847482800cec4f0c&authkey=AZdJzcQaggeMsOlvhXc-cZs&e=zV8BNd">Audacity</a></li>
 </ul>
+<p><img src="/images/ctf/musichide1.png" alt="img"></p>
+<p>看起来是一个摩斯电码，短线代表 <code>.</code>，长线代表 <code>-</code>，最后摩斯电码翻译如下:</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">.... -... -.-. ----. ..--- ..... -.... ....- ----. -.-. -... ----- .---- ---.. ---.. --.- ..... ..--- . -.... .---- --... -.. --... ----- ----. ..--- ----. .---- ----. .---- -.-.</span><br></pre></td></tr></table></figure>
+
+<p>摩斯电码解码得到:</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">HBC925649CB0188Q52E617D70929191C</span><br></pre></td></tr></table></figure>
+
+<p>md5解密得到<code>valar dohaeris</code></p>
+<p>试了不对，又试了md5值的小写，通过了</p>
+<p>flag：<code>5bc925649cb0188f52e617d70929191c</code></p>
+<h1 id="Python摩斯电码解密"><a href="#Python摩斯电码解密" class="headerlink" title="Python摩斯电码解密"></a>Python摩斯电码解密</h1><p>摩斯电码解密可以使用诸多在线网站，当然也可以用Python进行解密：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># -*- coding:utf-8 -*-</span><br><span class="line">s = input(&quot;input the cipher_text Enclose with quotes:&quot;)</span><br><span class="line">codebook = &#123;</span><br><span class="line">    &#x27;A&#x27;:&quot;.-&quot;,</span><br><span class="line">    &#x27;B&#x27;:&quot;-...&quot;,</span><br><span class="line">    &#x27;C&#x27;:&quot;-.-.&quot;,</span><br><span class="line">    &#x27;D&#x27;:&quot;-..&quot;,</span><br><span class="line">    &#x27;E&#x27;:&quot;.&quot;,</span><br><span class="line">    &#x27;F&#x27;:&quot;..-.&quot;,</span><br><span class="line">    &#x27;G&#x27;:&quot;--.&quot;,</span><br><span class="line">    &#x27;H&#x27;:&quot;....&quot;,</span><br><span class="line">    &#x27;I&#x27;:&quot;..&quot;,</span><br><span class="line">    &#x27;J&#x27;:&quot;.---&quot;,</span><br><span class="line">    &#x27;K&#x27;:&quot;-.-&quot;,</span><br><span class="line">    &#x27;L&#x27;:&quot;.-..&quot;,</span><br><span class="line">    &#x27;M&#x27;:&quot;--&quot;,</span><br><span class="line">    &#x27;N&#x27;:&quot;-.&quot;,</span><br><span class="line">    &#x27;O&#x27;:&quot;---&quot;,</span><br><span class="line">    &#x27;P&#x27;:&quot;.--.&quot;,</span><br><span class="line">    &#x27;Q&#x27;:&quot;--.-&quot;,</span><br><span class="line">    &#x27;R&#x27;:&quot;.-.&quot;,</span><br><span class="line">    &#x27;S&#x27;:&quot;...&quot;,</span><br><span class="line">    &#x27;T&#x27;:&quot;-&quot;,</span><br><span class="line">    &#x27;U&#x27;:&quot;..-&quot;,</span><br><span class="line">    &#x27;V&#x27;:&quot;.--&quot;,</span><br><span class="line">    &#x27;W&#x27;:&quot;.--&quot;,</span><br><span class="line">    &#x27;X&#x27;:&quot;-..-&quot;,</span><br><span class="line">    &#x27;Y&#x27;:&quot;-.--&quot;,</span><br><span class="line">    &#x27;Z&#x27;:&quot;--..&quot;,</span><br><span class="line">    &#x27;1&#x27;:&quot;.----&quot;,</span><br><span class="line">    &#x27;2&#x27;:&quot;..---&quot;,</span><br><span class="line">    &#x27;3&#x27;:&quot;...---&quot;,</span><br><span class="line">    &#x27;4&#x27;:&quot;....-&quot;,</span><br><span class="line">    &#x27;5&#x27;:&quot;.....&quot;,</span><br><span class="line">    &#x27;6&#x27;:&quot;-....&quot;,</span><br><span class="line">    &#x27;7&#x27;:&quot;--...&quot;,</span><br><span class="line">    &#x27;8&#x27;:&quot;---..&quot;,</span><br><span class="line">    &#x27;9&#x27;:&quot;----.&quot;,</span><br><span class="line">    &#x27;0&#x27;:&quot;-----&quot;,</span><br><span class="line">    &#x27;.&#x27;:&quot;.━.━.━&quot;,</span><br><span class="line">    &#x27;?&#x27;:&quot;..--..&quot;,</span><br><span class="line">    &#x27;!&#x27;:&quot;-.-.--&quot;,</span><br><span class="line">    &#x27;(&#x27;:&quot;-.--.&quot;,</span><br><span class="line">    &#x27;@&#x27;:&quot;.--.-.&quot;,</span><br><span class="line">    &#x27;:&#x27;:&quot;---...&quot;,</span><br><span class="line">    &#x27;=&#x27;:&quot;-...-&quot;,</span><br><span class="line">    &#x27;-&#x27;:&quot;-....-&quot;,</span><br><span class="line">    &#x27;)&#x27;:&quot;-.--.-&quot;,</span><br><span class="line">    &#x27;+&#x27;:&quot;.-.-.&quot;,</span><br><span class="line">    &#x27;,&#x27;:&quot;--..--&quot;,</span><br><span class="line">    &#x27;\&#x27;&#x27;:&quot;.----.&quot;,</span><br><span class="line">    &#x27;_&#x27;:&quot;..--.-&quot;,</span><br><span class="line">    &#x27;$&#x27;:&quot;...-..-&quot;,</span><br><span class="line">    &#x27;;&#x27;:&quot;-.-.-.&quot;,</span><br><span class="line">    &#x27;/&#x27;:&quot;-..-.&quot;,</span><br><span class="line">    &#x27;\&quot;&#x27;:&quot;.-..-.&quot;,</span><br><span class="line">&#125;</span><br><span class="line">clear = &quot;&quot;</span><br><span class="line">cipher = &quot;&quot;</span><br><span class="line"> </span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">while 1:</span><br><span class="line">ss = s.split(&quot; &quot;);</span><br><span class="line">for c in ss:</span><br><span class="line">for k in codebook.keys():</span><br><span class="line">if codebook[k] == c:</span><br><span class="line">cipher+=k</span><br><span class="line">print(cipher)</span><br><span class="line">break;</span><br></pre></td></tr></table></figure>
+
+<p>有时候可以观察出来</p>
+<p><img src="https://bbling.cc/wp-content/uploads/2024/09/image-14.png" alt="img"></p>
+<p>图谱可以看到flag</p>
 ]]></content>
       <tags>
         <tag>ctf</tag>
+        <tag>网络安全</tag>
+        <tag>写隐术</tag>
       </tags>
   </entry>
   <entry>
     <title>MySql学习笔记</title>
     <url>/2024/12/08/MySql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="mysql安装"><a href="#mysql安装" class="headerlink" title="mysql安装"></a>mysql安装</h1><p><a href="https://dev.mysql.com/downloads/mysql/">点击跳转下载链接</a></p>
-<p><img src="/images/mysql/2.png"></p>
+<p><a href="https://bu.dusays.com/2024/12/14/675da32d45e3c.png![](/images/mysql/2.png)">https://bu.dusays.com/2024/12/14/675da32d45e3c.png![](/images/mysql/2.png)</a></p>
 <p>centos选择Red Hat Enterprise Linux</p>
 <p>历史版本选择Archives</p>
 <p>将文件拷贝到centos下后使用命令安装</p>
@@ -349,41 +371,11 @@
 
 <h2 id="配置文件监听地址"><a href="#配置文件监听地址" class="headerlink" title="配置文件监听地址"></a>配置文件监听地址</h2>]]></content>
       <categories>
-        <category>mysql</category>
+        <category>数据库</category>
+        <category>MySQL</category>
       </categories>
       <tags>
         <tag>mysql</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ctf隐写术</title>
-    <url>/2024/12/03/ctf%E9%9F%B3%E9%A2%91%E9%9A%90%E5%86%99%E6%9C%AF/</url>
-    <content><![CDATA[<h1 id="Audacity"><a href="#Audacity" class="headerlink" title="Audacity"></a><strong>Audacity</strong></h1><p>使用像Audacity这样的音频处理软件打开文件，然后可以在音道的最上边看到一些特殊的:</p>
-<ul>
-<li><a href="https://iboxgalileogiftedschoolor-my.sharepoint.com/personal/wangshusong_auooo_com/_layouts/15/guestaccess.aspx?docid=0f7d6900c9d0e49f6847482800cec4f0c&authkey=AZdJzcQaggeMsOlvhXc-cZs&e=zV8BNd">Audacity</a></li>
-</ul>
-<p><img src="/images/ctf/musichide1.png" alt="img"></p>
-<p>看起来是一个摩斯电码，短线代表 <code>.</code>，长线代表 <code>-</code>，最后摩斯电码翻译如下:</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">.... -... -.-. ----. ..--- ..... -.... ....- ----. -.-. -... ----- .---- ---.. ---.. --.- ..... ..--- . -.... .---- --... -.. --... ----- ----. ..--- ----. .---- ----. .---- -.-.</span><br></pre></td></tr></table></figure>
-
-<p>摩斯电码解码得到:</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">HBC925649CB0188Q52E617D70929191C</span><br></pre></td></tr></table></figure>
-
-<p>md5解密得到<code>valar dohaeris</code></p>
-<p>试了不对，又试了md5值的小写，通过了</p>
-<p>flag：<code>5bc925649cb0188f52e617d70929191c</code></p>
-<h1 id="Python摩斯电码解密"><a href="#Python摩斯电码解密" class="headerlink" title="Python摩斯电码解密"></a>Python摩斯电码解密</h1><p>摩斯电码解密可以使用诸多在线网站，当然也可以用Python进行解密：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># -*- coding:utf-8 -*-</span><br><span class="line">s = input(&quot;input the cipher_text Enclose with quotes:&quot;)</span><br><span class="line">codebook = &#123;</span><br><span class="line">    &#x27;A&#x27;:&quot;.-&quot;,</span><br><span class="line">    &#x27;B&#x27;:&quot;-...&quot;,</span><br><span class="line">    &#x27;C&#x27;:&quot;-.-.&quot;,</span><br><span class="line">    &#x27;D&#x27;:&quot;-..&quot;,</span><br><span class="line">    &#x27;E&#x27;:&quot;.&quot;,</span><br><span class="line">    &#x27;F&#x27;:&quot;..-.&quot;,</span><br><span class="line">    &#x27;G&#x27;:&quot;--.&quot;,</span><br><span class="line">    &#x27;H&#x27;:&quot;....&quot;,</span><br><span class="line">    &#x27;I&#x27;:&quot;..&quot;,</span><br><span class="line">    &#x27;J&#x27;:&quot;.---&quot;,</span><br><span class="line">    &#x27;K&#x27;:&quot;-.-&quot;,</span><br><span class="line">    &#x27;L&#x27;:&quot;.-..&quot;,</span><br><span class="line">    &#x27;M&#x27;:&quot;--&quot;,</span><br><span class="line">    &#x27;N&#x27;:&quot;-.&quot;,</span><br><span class="line">    &#x27;O&#x27;:&quot;---&quot;,</span><br><span class="line">    &#x27;P&#x27;:&quot;.--.&quot;,</span><br><span class="line">    &#x27;Q&#x27;:&quot;--.-&quot;,</span><br><span class="line">    &#x27;R&#x27;:&quot;.-.&quot;,</span><br><span class="line">    &#x27;S&#x27;:&quot;...&quot;,</span><br><span class="line">    &#x27;T&#x27;:&quot;-&quot;,</span><br><span class="line">    &#x27;U&#x27;:&quot;..-&quot;,</span><br><span class="line">    &#x27;V&#x27;:&quot;.--&quot;,</span><br><span class="line">    &#x27;W&#x27;:&quot;.--&quot;,</span><br><span class="line">    &#x27;X&#x27;:&quot;-..-&quot;,</span><br><span class="line">    &#x27;Y&#x27;:&quot;-.--&quot;,</span><br><span class="line">    &#x27;Z&#x27;:&quot;--..&quot;,</span><br><span class="line">    &#x27;1&#x27;:&quot;.----&quot;,</span><br><span class="line">    &#x27;2&#x27;:&quot;..---&quot;,</span><br><span class="line">    &#x27;3&#x27;:&quot;...---&quot;,</span><br><span class="line">    &#x27;4&#x27;:&quot;....-&quot;,</span><br><span class="line">    &#x27;5&#x27;:&quot;.....&quot;,</span><br><span class="line">    &#x27;6&#x27;:&quot;-....&quot;,</span><br><span class="line">    &#x27;7&#x27;:&quot;--...&quot;,</span><br><span class="line">    &#x27;8&#x27;:&quot;---..&quot;,</span><br><span class="line">    &#x27;9&#x27;:&quot;----.&quot;,</span><br><span class="line">    &#x27;0&#x27;:&quot;-----&quot;,</span><br><span class="line">    &#x27;.&#x27;:&quot;.━.━.━&quot;,</span><br><span class="line">    &#x27;?&#x27;:&quot;..--..&quot;,</span><br><span class="line">    &#x27;!&#x27;:&quot;-.-.--&quot;,</span><br><span class="line">    &#x27;(&#x27;:&quot;-.--.&quot;,</span><br><span class="line">    &#x27;@&#x27;:&quot;.--.-.&quot;,</span><br><span class="line">    &#x27;:&#x27;:&quot;---...&quot;,</span><br><span class="line">    &#x27;=&#x27;:&quot;-...-&quot;,</span><br><span class="line">    &#x27;-&#x27;:&quot;-....-&quot;,</span><br><span class="line">    &#x27;)&#x27;:&quot;-.--.-&quot;,</span><br><span class="line">    &#x27;+&#x27;:&quot;.-.-.&quot;,</span><br><span class="line">    &#x27;,&#x27;:&quot;--..--&quot;,</span><br><span class="line">    &#x27;\&#x27;&#x27;:&quot;.----.&quot;,</span><br><span class="line">    &#x27;_&#x27;:&quot;..--.-&quot;,</span><br><span class="line">    &#x27;$&#x27;:&quot;...-..-&quot;,</span><br><span class="line">    &#x27;;&#x27;:&quot;-.-.-.&quot;,</span><br><span class="line">    &#x27;/&#x27;:&quot;-..-.&quot;,</span><br><span class="line">    &#x27;\&quot;&#x27;:&quot;.-..-.&quot;,</span><br><span class="line">&#125;</span><br><span class="line">clear = &quot;&quot;</span><br><span class="line">cipher = &quot;&quot;</span><br><span class="line"> </span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">while 1:</span><br><span class="line">ss = s.split(&quot; &quot;);</span><br><span class="line">for c in ss:</span><br><span class="line">for k in codebook.keys():</span><br><span class="line">if codebook[k] == c:</span><br><span class="line">cipher+=k</span><br><span class="line">print(cipher)</span><br><span class="line">break;</span><br></pre></td></tr></table></figure>
-
-<p>有时候可以观察出来</p>
-<p><img src="https://bbling.cc/wp-content/uploads/2024/09/image-14.png" alt="img"></p>
-<p>图谱可以看到flag</p>
-]]></content>
-      <categories>
-        <category>ctf</category>
-      </categories>
-      <tags>
-        <tag>ctf隐写</tag>
       </tags>
   </entry>
   <entry>
@@ -399,7 +391,7 @@
 <p>公式为<code>int num1=(31*num0+13)%100;</code></p>
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">	srand(<span class="number">1</span>);<span class="comment">//1设置种子</span></span><br><span class="line">		<span class="type">int</span> num = rand();<span class="comment">//2获取随机数</span></span><br><span class="line">		<span class="comment">//输出打印</span></span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, num);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img src="/%5Cimages%5CC%E4%BE%8B%E9%A2%98%5Crand.png"></p>
+<p><img src="https://bu.dusays.com/2024/12/14/675da00dbddbf.png"></p>
 <p>可以看到随机数是根据种子一直固定不变的</p>
 <p>这样的随机数并不是我们想要要的，我们需要让他每次计算的数值都并不一样，所以我们需要让种子一直更换，能完成更换的数值就是时间<code>time</code></p>
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line">srand(time(<span class="literal">NULL</span>));</span><br></pre></td></tr></table></figure>
@@ -454,10 +446,36 @@
 </ul>
 ]]></content>
       <categories>
-        <category>c</category>
+        <category>计算机编程</category>
+        <category>C</category>
       </categories>
       <tags>
         <tag>c</tag>
+        <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2024/11/05/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+      <categories>
+        <category>服务器</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -530,33 +548,16 @@
 <p>解决方法：</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker tag 779b77ae51a7 centos:latest</span><br></pre></td></tr></table></figure>
 
-<p><img src="/images/docker/docker1.png"></p>
+<p><img src="https://bu.dusays.com/2024/12/14/675da17781678.png"></p>
 <p>语法：docker tag [IMAGE ID] [REPOSITORY名]:[TAG标识]</p>
 ]]></content>
       <categories>
-        <category>docker</category>
+        <category>操作系统</category>
+        <category>Docker</category>
       </categories>
       <tags>
         <tag>docker</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2024/11/05/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
   </entry>
   <entry>
     <title>hexo搭建</title>
@@ -594,22 +595,22 @@
 
 
 <h1 id="gitee配置sshkey"><a href="#gitee配置sshkey" class="headerlink" title="gitee配置sshkey"></a>gitee配置sshkey</h1><p>打开<code>.ssh</code>路径下的<code>id_rsa.pub</code></p>
-<p><img src="/%5Cimages%5Chexo%5C2.png"></p>
+<p><img src="https://bu.dusays.com/2024/12/14/675da245a7908.png"></p>
 <p>将密钥复制到gitee</p>
-<p><img src="/%5Cimages%5Chexo%5C3.png"></p>
+<p><img src="https://bu.dusays.com/2024/12/14/675da245cd3d8.png"></p>
 <p>打开仓库管理-初始化</p>
-<p><img src="/%5Cimages%5Chexo%5C4.png"></p>
+<p><img src="https://bu.dusays.com/2024/12/14/675da245d534e.png"></p>
 <p>可以看到有了pages服务，点进去</p>
-<p><img src="/%5Cimages%5Chexo%5C5.png"></p>
+<p><img src="https://bu.dusays.com/2024/12/14/675da245cd3d8.png"></p>
 <p>目前gitee的pages服务已停止</p>
 <h1 id="github配置sshKey"><a href="#github配置sshKey" class="headerlink" title="github配置sshKey"></a>github配置sshKey</h1><p>首先在桌面右键打开git bash here</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;邮箱地址&quot;</span><br></pre></td></tr></table></figure>
 
 <p>敲击三次回车</p>
 <p>在C:\Users\用户名.ssh下找到id_rsa.pub文件并将内容复制</p>
-<p><img src="/%5Cimages%5Chexo%5C2.png"></p>
+<p><img src="https://bu.dusays.com/2024/12/14/675da245a7908.png"></p>
 <p>打开GitHub，右上角找到Settings，点击SSH and GPG keys，New ssh key，title随便起名字，key内容粘贴进去完后保存Add ssh key</p>
-<p><img src="/%5Cimages%5Chexo%5C6.png"></p>
+<p><img src="https://bu.dusays.com/2024/12/14/675da24635504.png"></p>
 <p>打开git bash here输入</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
 
@@ -647,14 +648,14 @@
 <p>接着<code>hexo cl;hexo g</code>生成</p>
 <p>hexo d部署线上</p>
 <p>如果不行前面加上npx</p>
-<p><img src="/images/hexo/image3.png"></p>
+<p><img src="https://bu.dusays.com/2024/12/14/675da245d534e.png"></p>
 <p>因为第一次执行需要配置邮箱</p>
 <p>复制上面git config –global user.email “邮箱.com”</p>
 <p>到下面执行</p>
-<p><img src="/images/hexo/image4.png"></p>
+<p><img src="https://bu.dusays.com/2024/12/14/675da245d534e.png"></p>
 <p>配置完成后再次hexo d执行</p>
 <p>在弹出的GitHub窗口页面进行登录,点击Sign in with your browser跳转浏览器进行登录</p>
-<p><img src="/images/hexo/image5.png"></p>
+<p><img src="https://bu.dusays.com/2024/12/14/675da245e33cb.png"></p>
 <h2 id="hexo-d命令报错"><a href="#hexo-d命令报错" class="headerlink" title="hexo d命令报错"></a>hexo d命令报错</h2><p>ERROR Deployer not found: git</p>
 <p>则是缺少插件</p>
 <p>我已经在站点配置文件中写入了：</p>
@@ -683,10 +684,66 @@
 <h1 id="主题配置"><a href="#主题配置" class="headerlink" title="主题配置"></a>主题配置</h1><p><a href="https://butterfly.js.org/posts/4aa8abbe/">Butterfly 文檔(三) 主題配置 | Butterfly</a></p>
 ]]></content>
       <categories>
-        <category>hexo</category>
+        <category>服务器</category>
+        <category>博客搭建</category>
       </categories>
       <tags>
         <tag>hexo</tag>
+        <tag>服务器</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo搭建宝塔服务器</title>
+    <url>/2024/12/14/hexo%E6%90%AD%E5%BB%BA%E5%AE%9D%E5%A1%94%E6%9C%8D%E5%8A%A1%E5%99%A8/</url>
+    <content><![CDATA[<blockquote>
+<p><a href="https://blog.csdn.net/qq_43219561/article/details/116719535?fromshare=blogdetail&sharetype=blogdetail&sharerId=116719535&sharerefer=PC&sharesource=weixin_46483957&sharefrom=from_link">原文CSDN：将Hexo部署到云服务器（使用宝塔面板）</a></p>
+</blockquote>
+<h2 id="服务器环境配置"><a href="#服务器环境配置" class="headerlink" title="服务器环境配置"></a>服务器环境配置</h2><h2 id="安装宝塔"><a href="#安装宝塔" class="headerlink" title="安装宝塔"></a>安装宝塔</h2><p><a href="https://www.bt.cn/new/download.html">宝塔面板下载，免费全能的服务器运维软件</a></p>
+<p><img src="https://bu.dusays.com/2024/12/14/675d42d5787ba.png"></p>
+<h2 id="服务器安装git"><a href="#服务器安装git" class="headerlink" title="服务器安装git"></a>服务器安装git</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum instll -y git</span><br><span class="line">git --version</span><br></pre></td></tr></table></figure>
+
+<h2 id="添加用户"><a href="#添加用户" class="headerlink" title="添加用户"></a>添加用户</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">adduser git</span><br></pre></td></tr></table></figure>
+
+<p>改变sudoers文件的权限为文件所有者可写</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">chmod 740 /etc/sudoers</span><br></pre></td></tr></table></figure>
+
+<p>编辑<code>vim /etc/sudoers</code></p>
+<p>在root ALL&#x3D;(ALL) ALL 下方添加一行</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git ALL=(ALL) ALL</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://bu.dusays.com/2024/12/14/675d4bba98c86.png"></p>
+<p>将其权限修改为文件所有者可读</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">chmod</span> 400 /etc/sudoers</span><br></pre></td></tr></table></figure>
+
+<h2 id="给git用户添加ssh密钥"><a href="#给git用户添加ssh密钥" class="headerlink" title="给git用户添加ssh密钥"></a>给git用户添加ssh密钥</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#在主机端打开powershell，cd到C:\Users\admin\.ssh生成密匙，如已有密匙可跳过这一步</span></span><br><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;taitres.cc&quot;</span></span><br><span class="line"><span class="comment"># -t 指定密钥类型，默认是 rsa ，可以省略</span></span><br><span class="line"><span class="comment"># -C 用于识别这个密钥的注释，可以输入任何内容</span></span><br><span class="line"><span class="comment"># -f 指定密钥文件存储文件名，默认id_rsa</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#在服务器端</span></span><br><span class="line">su git  <span class="comment">#切换到git用户</span></span><br><span class="line"><span class="built_in">mkdir</span> -p ~/.ssh</span><br><span class="line"><span class="built_in">touch</span> ~/.ssh/authorized_keys <span class="comment">#创建authorized_keys文件</span></span><br><span class="line"><span class="built_in">chmod</span> 600 ~/.ssh/authorized_keys  <span class="comment">#为authorized_keys文件赋予文件所有者可读可写的权限</span></span><br><span class="line"><span class="built_in">chmod</span> 700 ~/.ssh  <span class="comment">#为.ssh文件夹赋予文件夹所有者可读可写可执行的权限</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="创建Git仓库"><a href="#创建Git仓库" class="headerlink" title="创建Git仓库"></a>创建Git仓库</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> /home/git/repos    <span class="comment">#新建目录，这是git仓库的位置</span></span><br><span class="line"><span class="built_in">cd</span> /home/git/repos</span><br><span class="line">git init --bare bbling.git <span class="comment">#初始化一个名叫bbling的仓库</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="配置钩子实现自动部署"><a href="#配置钩子实现自动部署" class="headerlink" title="配置钩子实现自动部署"></a>配置钩子实现自动部署</h2><p>找到 <code>/home/git/repos/bbling.git/hooks/post-update.sample</code> 改名<code>post-update</code></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mv</span> post-update.sample post-update</span><br></pre></td></tr></table></figure>
+
+<p>内容改为</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line">git --work-tree=/www/wwwroot/bbling.cc --git-dir=/home/git/repos/bbling.git checkout -f</span><br></pre></td></tr></table></figure>
+
+<p>然后给权限</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /home/git/repos/bbling.git/hooks/</span><br><span class="line"><span class="built_in">chmod</span> +x post-update  <span class="comment">#赋予其可执行权限</span></span><br><span class="line">su root#切换root用户</span><br><span class="line"><span class="built_in">mkdir</span> /www/wwwroot/bbling.cc <span class="comment">#新建站点文件夹</span></span><br><span class="line"><span class="built_in">chown</span> -R git:git /home/git/repos/ <span class="comment">#仓库所有者改为git</span></span><br><span class="line"><span class="built_in">chown</span> -R git:git /www/wwwroot/bbling.cc/ <span class="comment">#站点文件夹所有者改为git</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="测试Git仓库是否可用"><a href="#测试Git仓库是否可用" class="headerlink" title="测试Git仓库是否可用"></a>测试Git仓库是否可用</h2><p>在主机端，如果能将仓库拉下来，说明Git仓库搭建成功</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git@server_ip:/home/git/repos/bbling.git</span><br></pre></td></tr></table></figure>
+
+<h2 id="本地配置和测试"><a href="#本地配置和测试" class="headerlink" title="本地配置和测试"></a>本地配置和测试</h2><p>修改本地Hexo博客文件夹中的<code>_config.yml</code>文件</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">git@server:/home/git/repos/bbling.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo cl;hexo g;hexo d</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>服务器</category>
+        <category>博客搭建</category>
+      </categories>
+      <tags>
+        <tag>网络</tag>
+        <tag>宝塔</tag>
       </tags>
   </entry>
   <entry>
@@ -787,7 +844,7 @@
 </thead>
 <tbody><tr>
 <td>priority</td>
-<td>number</td>
+<td>xxxxxxxxxx rar x filename.rar dirshell</td>
 <td>【可选】过滤器优先级，数值越小，执行越早，默认为10，选填</td>
 </tr>
 <tr>
@@ -925,9 +982,21 @@
 <li>如果配置了上方的swipper，最好不要动layout，当然我也不是很懂，但是至少这样能够正常运行haha</li>
 </ul>
 <h1 id="安知鱼同款loading动画"><a href="#安知鱼同款loading动画" class="headerlink" title="安知鱼同款loading动画"></a>安知鱼同款loading动画</h1><p><a href="https://blog.anheyu.com/posts/52d8.html">Heo同款loading动画 | 安知鱼</a></p>
+<h1 id="hexo自定义页脚"><a href="#hexo自定义页脚" class="headerlink" title="hexo自定义页脚"></a>hexo自定义页脚</h1><blockquote>
+<p>参考唐志远<a href="https://segmentfault.com/a/1190000043914196">javascript - Hexo + Butterfly 自定义页脚 - 个人文章 - SegmentFault 思否</a></p>
+</blockquote>
+<p>在<code>BlogRoot/node_modules/hexo-theme-butterfly/layout/includes/footer.pug</code>中添加如下代码:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#footer-wrap</span><br><span class="line">  #ft</span><br><span class="line"> .ft-item-1</span><br><span class="line">   .t-top</span><br><span class="line">     .t-t-l</span><br><span class="line">       p.ft-t.t-l-t 说点什么</span><br><span class="line">       .bg-ad</span><br><span class="line">         div</span><br><span class="line">           | （这里的内容随你写，但是不要过长影响整体美观度，具体可根据实现效果修改）随便说点什么说点什么、随便说点什么说点什么随便说点什么说点什么随便说点什么说点什么随便说点什么说。</span><br><span class="line">         .btn-xz-box</span><br><span class="line">           a.btn-xz(href=&#x27;https://fe32.top/&#x27;) 点击跳转到哪儿</span><br><span class="line">     .t-t-r</span><br><span class="line">       p.ft-t.t-l-t 修仙导航</span><br><span class="line">       ul.ft-links</span><br><span class="line">         li</span><br><span class="line">           a(href=&#x27;https://fe32.top/articles/hexo1600/&#x27;) 建站指南</span><br><span class="line">           a(href=&#x27;https://fe32.top/nav.html&#x27;) 网址导航</span><br><span class="line">         li</span><br><span class="line">           a(href=&#x27;https://fe32.top/sponsorWall/&#x27;) 来杯咖啡</span><br><span class="line">           a(href=&#x27;https://fe32.top/comments/&#x27;) 留点什么</span><br><span class="line">         li</span><br><span class="line">           a(href=&#x27;https://fe32.top/about/&#x27;) 关于博主</span><br><span class="line">           a(href=&#x27;https://fe32.top/archives/&#x27;) 文章归档</span><br><span class="line">         li</span><br><span class="line">           a(href=&#x27;https://fe32.top/categories/&#x27;) 文章分类</span><br><span class="line">           a(href=&#x27;https://fe32.top/tags/&#x27;) 文章标签</span><br><span class="line">         li</span><br><span class="line">           a(href=&#x27;https://fe32.top/gallery/&#x27;) 我的相册</span><br><span class="line">           a(href=&#x27;https://fe32.top/bangumis/&#x27;) 我的追番</span><br><span class="line">         li</span><br><span class="line">           a(href=&#x27;https://fe32.top/specialEffects/&#x27;) 一些特效</span><br><span class="line">           a(href=&#x27;https://fe32.top/wallpaper/&#x27;) 一些壁纸</span><br><span class="line"> .ft-item-2</span><br><span class="line">   p.ft-t 推荐友链</span><br><span class="line">   .ft-img-group</span><br><span class="line">     .img-group-item</span><br><span class="line">       a(href=&#x27;https://fe32.top/&#x27;)</span><br><span class="line">         img(src=&#x27;https://bu.dusays.com/2022/05/02/626f92e193879.jpg&#x27; alt=&#x27;&#x27;)</span><br><span class="line">     .img-group-item</span><br><span class="line">       a(href=&#x27;https://fe32.top/&#x27;)</span><br><span class="line">         img(src=&#x27;https://bu.dusays.com/2022/05/02/626f92e193879.jpg&#x27; alt=&#x27;&#x27;)</span><br><span class="line">     .img-group-item</span><br><span class="line">       a(href=&#x27;https://fe32.top/&#x27;)</span><br><span class="line">         img(src=&#x27;https://bu.dusays.com/2022/05/02/626f92e193879.jpg&#x27; alt=&#x27;&#x27;)</span><br><span class="line">     .img-group-item</span><br><span class="line">       a(href=&#x27;https://fe32.top/&#x27;)</span><br><span class="line">         img(src=&#x27;https://bu.dusays.com/2022/05/02/626f92e193879.jpg&#x27; alt=&#x27;&#x27;)</span><br><span class="line">     .img-group-item</span><br><span class="line">       a(href=&#x27;https://fe32.top/&#x27;)</span><br><span class="line">         img(src=&#x27;https://bu.dusays.com/2022/05/02/626f92e193879.jpg&#x27; alt=&#x27;&#x27;)</span><br><span class="line">     .img-group-item</span><br><span class="line">       a(href=&#x27;https://fe32.top/&#x27;)</span><br><span class="line">         img(src=&#x27;https://bu.dusays.com/2022/05/02/626f92e193879.jpg&#x27; alt=&#x27;&#x27;)</span><br><span class="line">     .img-group-item</span><br><span class="line">       a(href=&#x27;https://fe32.top/&#x27;)</span><br><span class="line">         img(src=&#x27;https://bu.dusays.com/2022/05/02/626f92e193879.jpg&#x27; alt=&#x27;&#x27;)</span><br><span class="line">     .img-group-item</span><br><span class="line">       a(href=&#x27;https://fe32.top/&#x27;)</span><br><span class="line">         img(src=&#x27;https://bu.dusays.com/2022/05/02/626f92e193879.jpg&#x27; alt=&#x27;&#x27;)</span><br><span class="line">  if theme.footer.owner.enable</span><br><span class="line"> - var now = new Date()</span><br><span class="line"> - var nowYear = now.getFullYear()</span><br><span class="line"> if theme.footer.owner.since &amp;&amp; theme.footer.owner.since != nowYear</span><br><span class="line">   .copyright!= `&amp;copy;$&#123;theme.footer.owner.since&#125; - $&#123;nowYear + &#x27; &#x27;&#125; &lt;i id=&quot;heartbeat&quot; class=&quot;fa fas fa-heartbeat&quot;&gt;&lt;/i&gt; $&#123;config.author&#125;`</span><br><span class="line"> else</span><br><span class="line">   .copyright!= `&amp;copy;$&#123;nowYear + &#x27; &#x27;&#125; &lt;i id=&quot;heartbeat&quot; class=&quot;fa fas fa-heartbeat&quot;&gt;&lt;/i&gt; $&#123;config.author&#125;`</span><br><span class="line">  if theme.footer.copyright</span><br><span class="line"> .framework-info</span><br><span class="line">   span= _p(&#x27;footer.framework&#x27;) + &#x27; &#x27;</span><br><span class="line">   a(href=&#x27;https://hexo.io&#x27;)= &#x27;Hexo&#x27;</span><br><span class="line">   span.footer-separator |</span><br><span class="line">   span= _p(&#x27;footer.theme&#x27;) + &#x27; &#x27;</span><br><span class="line">   a(href=&#x27;https://github.com/jerryc127/hexo-theme-butterfly&#x27;)= &#x27;Butterfly&#x27;</span><br><span class="line">  if theme.footer.custom_text</span><br><span class="line"> .footer_custom_text!=`$&#123;theme.footer.custom_text&#125;`</span><br></pre></td></tr></table></figure>
+
+<p>你需要添加的代码为<code>#ft</code>整个 div，注意在缩进上与主题的几个<code>if</code>对齐。这里你可以根据自己的需求修改以上内容等，例如【说点什么】、自定义底部导航链接等，【推荐友链】的图片尺寸建议 1:1。</p>
+<p>将以下代码复制到自定义的<code>custom.css</code>中</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/* 自定义底部  start */</span></span><br><span class="line"><span class="selector-id">#ft</span> &#123;</span><br><span class="line"> <span class="attribute">max-width</span>: <span class="number">1200px</span>;</span><br><span class="line"> <span class="attribute">margin</span>: <span class="number">0</span> auto <span class="number">12px</span>;</span><br><span class="line"> <span class="attribute">display</span>: flex;</span><br><span class="line"> <span class="attribute">color</span>: <span class="built_in">rgb</span>(<span class="number">255</span> <span class="number">255</span> <span class="number">255</span> / <span class="number">80%</span>) <span class="meta">!important</span>;</span><br><span class="line"> <span class="attribute">text-align</span>: left;</span><br><span class="line"> <span class="attribute">flex-wrap</span>: wrap;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.ft-item-1</span>,</span><br><span class="line"><span class="selector-class">.ft-item-2</span> &#123;</span><br><span class="line"> <span class="attribute">display</span>: flex;</span><br><span class="line"> <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line"> <span class="attribute">padding</span>: <span class="number">10px</span> <span class="number">14px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.ft-item-1</span> &#123;</span><br><span class="line"> <span class="attribute">flex-direction</span>: column;</span><br><span class="line"> <span class="attribute">flex</span>: <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.ft-item-2</span> &#123;</span><br><span class="line"> <span class="attribute">flex</span>: <span class="number">1</span>;</span><br><span class="line"> <span class="attribute">flex-direction</span>: column;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.t-top</span> &#123;</span><br><span class="line"> <span class="attribute">display</span>: flex;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.t-top</span> <span class="selector-class">.t-t-l</span> &#123;</span><br><span class="line"> <span class="attribute">display</span>: flex;</span><br><span class="line"> <span class="attribute">flex-direction</span>: column;</span><br><span class="line"> <span class="attribute">flex</span>: <span class="number">1.4</span>;</span><br><span class="line"> <span class="attribute">margin-right</span>: <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.t-top</span> <span class="selector-class">.t-t-l</span> <span class="selector-class">.bg-ad</span> &#123;</span><br><span class="line"> <span class="attribute">width</span>: <span class="number">85%</span>;</span><br><span class="line"> <span class="attribute">border-radius</span>: <span class="number">10px</span>;</span><br><span class="line"> <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.btn-xz-box</span> &#123;</span><br><span class="line"> <span class="attribute">margin-top</span>: <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.btn-xz</span> &#123;</span><br><span class="line"> <span class="attribute">display</span>: block;</span><br><span class="line"> <span class="attribute">background-color</span>: <span class="built_in">var</span>(--btn-bg);</span><br><span class="line"> <span class="attribute">color</span>: <span class="built_in">var</span>(--btn-color);</span><br><span class="line"> <span class="attribute">text-align</span>: center;</span><br><span class="line"> <span class="attribute">line-height</span>: <span class="number">2.4</span>;</span><br><span class="line"> <span class="attribute">margin</span>: <span class="number">8px</span> <span class="number">0</span>;</span><br><span class="line"> <span class="attribute">cursor</span>: pointer <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.btn-xz</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line"> <span class="attribute">text-decoration</span>: none <span class="meta">!important</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.btn-xz-box</span><span class="selector-pseudo">:hover</span> <span class="selector-class">.btn-xz</span> &#123;</span><br><span class="line"> <span class="attribute">background-color</span>: <span class="number">#6f42c1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.t-top</span> <span class="selector-class">.t-t-r</span> &#123;</span><br><span class="line"> <span class="attribute">display</span>: flex;</span><br><span class="line"> <span class="attribute">flex-direction</span>: column;</span><br><span class="line"> <span class="attribute">flex</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.ft-links</span> &#123;</span><br><span class="line"> <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">14px</span>;</span><br><span class="line"> <span class="attribute">list-style</span>: none;</span><br><span class="line"> <span class="attribute">margin-top</span>: <span class="number">0</span> <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.ft-links</span> <span class="selector-tag">li</span> <span class="selector-tag">a</span> &#123;</span><br><span class="line"> <span class="attribute">display</span>: inline-block <span class="meta">!important</span>;</span><br><span class="line"> <span class="attribute">width</span>: <span class="number">50%</span>;</span><br><span class="line"> <span class="attribute">cursor</span>: pointer <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.ft-links</span> <span class="selector-tag">li</span> <span class="selector-tag">a</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line"> <span class="attribute">text-decoration</span>: none <span class="meta">!important</span>;</span><br><span class="line"> <span class="attribute">color</span>: <span class="number">#6f42c1</span> <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.ft-item-2</span> <span class="selector-class">.ft-img-group</span> &#123;</span><br><span class="line"> <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.ft-t</span> &#123;</span><br><span class="line"> <span class="attribute">font-size</span>: <span class="number">0.8rem</span>;</span><br><span class="line"> <span class="attribute">margin-bottom</span>: <span class="number">20px</span>;</span><br><span class="line"> <span class="attribute">line-height</span>: <span class="number">1</span>;</span><br><span class="line"> <span class="attribute">font-weight</span>: <span class="number">600</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.t-l-t</span> &#123;</span><br><span class="line"> <span class="attribute">padding-left</span>: <span class="number">14px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.ft-item-2</span> <span class="selector-class">.ft-img-group</span> <span class="selector-class">.img-group-item</span> &#123;</span><br><span class="line"> <span class="attribute">display</span>: inline-block;</span><br><span class="line"> <span class="attribute">width</span>: <span class="number">18.4%</span>;</span><br><span class="line"> <span class="attribute">margin-right</span>: <span class="number">14px</span>;</span><br><span class="line"> <span class="attribute">margin-bottom</span>: <span class="number">6px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.ft-item-2</span> <span class="selector-class">.ft-img-group</span> <span class="selector-class">.img-group-item</span> <span class="selector-tag">a</span> &#123;</span><br><span class="line"> <span class="attribute">display</span>: inline-block;</span><br><span class="line"> <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line"> <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line"> <span class="attribute">cursor</span>: pointer <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.ft-item-2</span> <span class="selector-class">.ft-img-group</span> <span class="selector-class">.img-group-item</span> <span class="selector-tag">a</span> <span class="selector-tag">img</span> &#123;</span><br><span class="line"> <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line"> <span class="attribute">max-height</span>: <span class="number">80px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">max-width</span>: <span class="number">768px</span>) &#123;</span><br><span class="line"></span><br><span class="line"> <span class="selector-class">.ft-item-1</span> &#123;</span><br><span class="line">     <span class="attribute">flex-basis</span>: <span class="number">100%</span> <span class="meta">!important</span>;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="selector-class">.ft-item-2</span> &#123;</span><br><span class="line">     <span class="attribute">flex-basis</span>: <span class="number">100%</span> <span class="meta">!important</span>;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="selector-class">.t-top</span> <span class="selector-class">.t-t-l</span> <span class="selector-class">.bg-ad</span> &#123;</span><br><span class="line">     <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">max-width</span>: <span class="number">576px</span>) &#123;</span><br><span class="line"> <span class="selector-class">.t-top</span> &#123;</span><br><span class="line">     <span class="attribute">flex-wrap</span>: wrap;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="selector-class">.t-top</span> <span class="selector-class">.t-t-l</span> &#123;</span><br><span class="line">     <span class="attribute">flex-basis</span>: <span class="number">100%</span> <span class="meta">!important</span>;</span><br><span class="line"></span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="selector-class">.t-top</span> <span class="selector-class">.t-t-r</span> &#123;</span><br><span class="line">     <span class="attribute">margin-top</span>: <span class="number">16px</span>;</span><br><span class="line">     <span class="attribute">flex-basis</span>: <span class="number">100%</span> <span class="meta">!important</span>;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 自定义底部  End */</span></span><br></pre></td></tr></table></figure>
+
+<p>css 中的<code>#6f42c1</code>是我的主题色，这里记得换成你的主题色。</p>
 ]]></content>
       <categories>
-        <category>hexo</category>
+        <category>关于博客</category>
+        <category>hexo魔改</category>
       </categories>
       <tags>
         <tag>hexo</tag>
@@ -1025,7 +1094,8 @@
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">rar x filename.rar dir</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>linux</category>
+        <category>操作系统</category>
+        <category>Linux</category>
       </categories>
       <tags>
         <tag>linux</tag>
@@ -1098,10 +1168,14 @@
 <p>这个命令会尝试检测目标页面的 SQL 注入漏洞并推出可用的数据库。</p>
 ]]></content>
       <categories>
-        <category>sqlmap</category>
+        <category>计算机网络</category>
+        <category>网络攻击</category>
       </categories>
       <tags>
+        <tag>ctf</tag>
+        <tag>网络安全</tag>
         <tag>sqlmap</tag>
+        <tag>计算机网络</tag>
       </tags>
   </entry>
   <entry>
@@ -1141,17 +1215,42 @@
 <p><img src="/images/windows%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6%E6%97%A0%E6%9D%83%E9%99%90/image15.png" alt="img"></p>
 ]]></content>
       <categories>
-        <category>windows</category>
+        <category>计算机系统</category>
       </categories>
       <tags>
         <tag>windows</tag>
       </tags>
   </entry>
   <entry>
+    <title>windows脚本自动压缩包</title>
+    <url>/2024/12/14/windows%E8%84%9A%E6%9C%AC%E8%87%AA%E5%8A%A8%E5%8E%8B%E7%BC%A9%E5%8C%85/</url>
+    <content><![CDATA[<p>用hexo的时候，在每次修改配置文件之前，总会先要备份一下，以免在更改文件后出现报错但又不知道问题在哪的时候</p>
+<p>备份就直接用压缩包对整个博客目录进行压缩改名就行了，但是时间久了感觉非常麻烦，于是就萌生了用.bat脚本直接一键备份顺便改名的想法，在网上找了多个教程进行实操</p>
+<p>首先要知道你的winrar软件的根目录在哪里，默认的路径在<code>C:\Program Files\WinRAR\Rar.exe</code></p>
+<p>我的安装在D盘了<code>D:\Program Files (x86)\WinRAR\WinRAR.exe</code></p>
+<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line">&quot;D:\Program Files (x86)\WinRAR\WinRAR.exe&quot; a -ep1 D:\Program Files\hexo\备份\文件名.rar D:\Program Files\hexo\LinBlog</span><br></pre></td></tr></table></figure>
+
+<p>a 添加文件到压缩文件<br>-ep1 从名称里排除基目录</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@echo off</span><br><span class="line">&quot;D:\Program Files (x86)\WinRAR\Rar.exe&quot; a -ep1 D:\Program Files\hexo\备份\LinBloghexo2024.12.14_21.04.rar D:\Program Files\hexo\LinBlog\</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@echo off</span><br><span class="line">setlocal EnableDelayedExpansion</span><br><span class="line">rem 指定源目录</span><br><span class="line">set source_directory=D:\Program Files\hexo\LinBlog</span><br><span class="line">rem 指定目标zip文件</span><br><span class="line">set destination_zip=D:\Program Files\hexo\备份\LinBloghexo2024.12.14_21.04.rar</span><br><span class="line">rem 使用winrar执行压缩操作</span><br><span class="line">rar a -r &quot;!destination_zip!&quot; &quot;!source_directory!\*&quot;</span><br><span class="line">echo Compression complete</span><br><span class="line">pause</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>操作系统</category>
+        <category>windows</category>
+      </categories>
+      <tags>
+        <tag>windows</tag>
+        <tag>dos</tag>
+        <tag>bat</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>关于centos的文档</title>
     <url>/2024/11/28/%E5%85%B3%E4%BA%8Ecentos%E7%9A%84%E6%96%87%E6%A1%A3/</url>
     <content><![CDATA[<h2 id="centos更换yum源"><a href="#centos更换yum源" class="headerlink" title="centos更换yum源"></a>centos更换yum源</h2><p>如果不更换yum源的话就可能会出现以下结果，无法安装应用</p>
-<p><img src="/images/centosyum/yumcuowu.png"></p>
+<p><img src="https://bu.dusays.com/2024/12/14/675d9cba8e6b5.png"></p>
 <h3 id="首先进入到-etc-yum-repos-d目录"><a href="#首先进入到-etc-yum-repos-d目录" class="headerlink" title="首先进入到/etc/yum.repos.d目录"></a>首先进入到<code>/etc/yum.repos.d</code>目录</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd /etc/yum.repos.d</span><br></pre></td></tr></table></figure>
 
 <h3 id="对原来的yum源进行备份"><a href="#对原来的yum源进行备份" class="headerlink" title="对原来的yum源进行备份"></a>对原来的yum源进行备份</h3><p>形成一个后缀为bak的文件</p>
@@ -1171,7 +1270,7 @@
 <p>查看yum仓库</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo yum repolist all</span><br></pre></td></tr></table></figure>
 
-<p><img src="/images/centosyum/yumupdate.png"></p>
+<p><img src="/https:/bu.dusays.com/2024/12/14/675d9cbc45328.png"></p>
 <p>查找yum可以安装的软件包</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum search ftp</span><br></pre></td></tr></table></figure>
 
@@ -1213,12 +1312,17 @@
 <p><img src="/images/centos/2.png"></p>
 <p>使用命令<code>vi ifcfg-ens33</code>修改该文件，将ONBOOT改为yes：</p>
 <p><img src="/images/centos/3.png"></p>
+<h1 id="解决ssh登录Host-key-verification-failed（主机密钥验证失败）问题"><a href="#解决ssh登录Host-key-verification-failed（主机密钥验证失败）问题" class="headerlink" title="解决ssh登录Host key verification failed（主机密钥验证失败）问题"></a>解决ssh登录Host key verification failed（主机密钥验证失败）问题</h1><h2 id="解决方案："><a href="#解决方案：" class="headerlink" title="解决方案："></a>解决方案：</h2><p>输在主机端（注意不是被连接的服务器）输入以下代码即可。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-keygen -R 你要访问的ip地址</span><br><span class="line"><span class="comment"># 比如像</span></span><br><span class="line">ssh-keygen -R  54.65.82.193</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
-        <category>centos</category>
+        <category>操作系统</category>
+        <category>Linux</category>
       </categories>
       <tags>
-        <tag>centos</tag>
+        <tag>linux</tag>
+        <tag>dns添加</tag>
       </tags>
   </entry>
   <entry>
@@ -1236,14 +1340,15 @@
 <li>网站根目录需要存在&#x2F;cgi-bin&#x2F;bin文件</li>
 </ol>
 <p>可以通过nmap脚本http-shellshock.nse进行扫描，查看是否存在此漏洞</p>
-<p><img src="/images/%E5%AE%89%E5%85%A8%E6%BC%8F%E6%B4%9E/image1.png" alt="img"></p>
+<p><img src="https://bu.dusays.com/2024/12/14/675d9b0e95475.png" alt="img"></p>
 <p>搜索漏洞利用模块</p>
-<p><img src="/images/%E5%AE%89%E5%85%A8%E6%BC%8F%E6%B4%9E/image2.png" alt="img"></p>
+<p><img src="https://bu.dusays.com/2024/12/14/675d9b379ad79.png" alt="img"></p>
 <p>设置参数</p>
-<p><img src="/images/%E5%AE%89%E5%85%A8%E6%BC%8F%E6%B4%9E/image3.png" alt="img"></p>
+<p><img src="https://bu.dusays.com/2024/12/14/675d9b61f0e40.png" alt="img"></p>
 ]]></content>
       <categories>
-        <category>ctf</category>
+        <category>计算机网络</category>
+        <category>网络安全</category>
       </categories>
       <tags>
         <tag>ctf</tag>
@@ -1255,39 +1360,32 @@
     <content><![CDATA[<h2 id="1删除默认数据库test"><a href="#1删除默认数据库test" class="headerlink" title="1删除默认数据库test"></a>1删除默认数据库test</h2><p>修改&#x2F;etc&#x2F;my.ini配置文件，添加skip-grant-tables跳过密码验证</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vim /etc/my.ini   //修改配置文件</span><br><span class="line"></span><br><span class="line">skip-grant-tables  //末尾添加</span><br><span class="line"> </span><br><span class="line">systemctl restart mysqld  //重启mysqld服务</span><br></pre></td></tr></table></figure>
 
-<p><img src="/images/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8A%A0%E5%9B%BA/image-1.png" alt="img"></p>
+<p><img src="https://bu.dusays.com/2024/12/14/675d9db231a41.png" alt="img"></p>
 <p>重置密码完成，用新密码Admin123登陆即可</p>
-<p><img src="/images/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8A%A0%E5%9B%BA/image-2.png" alt="img"></p>
-<h2 id="2改变默认mysql管理员为superroot"><a href="#2改变默认mysql管理员为superroot" class="headerlink" title="2改变默认mysql管理员为superroot"></a>2改变默认mysql管理员为superroot</h2><p><img src="/images/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8A%A0%E5%9B%BA/image-3.png" alt="img"></p>
+<p><img src="https://bu.dusays.com/2024/12/14/675d9db854997.png" alt="img"></p>
+<h2 id="2改变默认mysql管理员为superroot"><a href="#2改变默认mysql管理员为superroot" class="headerlink" title="2改变默认mysql管理员为superroot"></a>2改变默认mysql管理员为superroot</h2><p><img src="https://bu.dusays.com/2024/12/14/675d9db9d44eb.png" alt="img"></p>
 <p>3使用mysql内置md5加密函数加密用户user1的密码为(P@ssw0rd1!)</p>
 <p>注意：mysql7以下版本存放密码的字段为password，mysql7以上存放密码的字段变成了authentication_string</p>
 <p>此环境为mysql8.0，可以通过select vesion()查看</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">select version() //查看版本</span><br><span class="line"> </span><br><span class="line">update user set authentication string=md5(&#x27;P@ssw0rd1!&#x27;) where user=&#x27;user1&#x27;;</span><br><span class="line"></span><br><span class="line">select authentication string from user where user=&#x27;user1&#x27;;</span><br></pre></td></tr></table></figure>
 
-<p><img src="/images/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8A%A0%E5%9B%BA/image-4.png" alt="img"></p>
+<p><img src="https://bu.dusays.com/2024/12/14/675d9dbbab96f.png" alt="img"></p>
 <h2 id="4赋予user1用户对数据库所有表只有select、insert、delete、update权限"><a href="#4赋予user1用户对数据库所有表只有select、insert、delete、update权限" class="headerlink" title="4赋予user1用户对数据库所有表只有select、insert、delete、update权限"></a>4赋予user1用户对数据库所有表只有select、insert、delete、update权限</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">select host,user,authentication_string from user where user=&#x27;user1&#x27;;</span><br><span class="line"> </span><br><span class="line">grant select,insert,delete,update on *.* to &#x27;user1&#x27;@&#x27;localhost&#x27;;</span><br></pre></td></tr></table></figure>
 
-<p><img src="/images/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8A%A0%E5%9B%BA/image-5.png" alt="img"></p>
+<p><img src="https://bu.dusays.com/2024/12/14/675d9dbd3566b.png" alt="img"></p>
 <h2 id="5对忘记mysql数据库SuperRoot管理员密码进行重置操作"><a href="#5对忘记mysql数据库SuperRoot管理员密码进行重置操作" class="headerlink" title="5对忘记mysql数据库SuperRoot管理员密码进行重置操作"></a>5对忘记mysql数据库SuperRoot管理员密码进行重置操作</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">alter user &#x27;SuperRoot&#x27;@&#x27;localhost&#x27; identified by &#x27;Qwer1234!@#$&#x27;;</span><br></pre></td></tr></table></figure>
 
 <p><img src="/images/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8A%A0%E5%9B%BA/image-6.png" alt="img"></p>
 ]]></content>
       <categories>
-        <category>mysql</category>
+        <category>数据库</category>
+        <category>MySQL</category>
       </categories>
       <tags>
+        <tag>ctf</tag>
         <tag>mysql</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>英语语法</title>
-    <url>/2024/11/27/%E8%8B%B1%E8%AF%AD%E8%AF%AD%E6%B3%95/</url>
-    <content><![CDATA[<h2 id="三单"><a href="#三单" class="headerlink" title="三单"></a>三单</h2>]]></content>
-      <categories>
-        <category>大学生涯</category>
-      </categories>
-      <tags>
-        <tag>english</tag>
+        <tag>linux</tag>
+        <tag>centos</tag>
       </tags>
   </entry>
   <entry>
@@ -1297,10 +1395,22 @@
 <p>ICP备案号:<a href="https://beian.miit.gov.cn/">豫ICP备2024063535号-1</a></p>
 ]]></content>
       <categories>
+        <category>计算机编程</category>
         <category>java</category>
       </categories>
       <tags>
         <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>英语语法</title>
+    <url>/2024/11/27/%E8%8B%B1%E8%AF%AD%E8%AF%AD%E6%B3%95/</url>
+    <content><![CDATA[<h2 id="三单"><a href="#三单" class="headerlink" title="三单"></a>三单</h2>]]></content>
+      <categories>
+        <category>大学</category>
+      </categories>
+      <tags>
+        <tag>english</tag>
       </tags>
   </entry>
   <entry>
@@ -1310,13 +1420,14 @@
 <p>引用<a href="https://www.jiangmen.gov.cn/bmpd/jmszwfwsjglj/ztzl/wlxxaq/xxjs/content/post_1768610.html">https://www.jiangmen.gov.cn/bmpd/jmszwfwsjglj/ztzl/wlxxaq/xxjs/content/post_1768610.html</a></p>
 </blockquote>
 <p>前言</p>
-<p><img src="/images/network/OsiAndTcpIp.png" alt="Tcp/IP三层模型"></p>
+<p><img src="https://bu.dusays.com/2024/12/14/675d9d026f721.png" alt="Tcp/IP三层模型"></p>
 ]]></content>
       <categories>
-        <category>network</category>
+        <category>计算机网络</category>
+        <category>网络安全</category>
       </categories>
       <tags>
-        <tag>network</tag>
+        <tag>网络</tag>
       </tags>
   </entry>
 </search>
