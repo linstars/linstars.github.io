@@ -1,0 +1,242 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>hexo搭建宝塔服务器 | LinBlog</title><meta name="author" content="爱吃玉米常"><meta name="copyright" content="爱吃玉米常"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="原文CSDN：将Hexo部署到云服务器（使用宝塔面板）  服务器环境配置安装宝塔宝塔面板下载，免费全能的服务器运维软件  服务器安装git12yum instll -y gitgit --version  添加用户1adduser git  改变sudoers文件的权限为文件所有者可写 1chmod 740 &#x2F;etc&#x2F;sudoers  编辑vim &#x2F;etc&#x2F;sudoers 在root ALL&amp;#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo搭建宝塔服务器">
+<meta property="og:url" content="http://1.94.234.244/2024/12/14/hexo%E6%90%AD%E5%BB%BA%E5%AE%9D%E5%A1%94%E6%9C%8D%E5%8A%A1%E5%99%A8/index.html">
+<meta property="og:site_name" content="LinBlog">
+<meta property="og:description" content="原文CSDN：将Hexo部署到云服务器（使用宝塔面板）  服务器环境配置安装宝塔宝塔面板下载，免费全能的服务器运维软件  服务器安装git12yum instll -y gitgit --version  添加用户1adduser git  改变sudoers文件的权限为文件所有者可写 1chmod 740 &#x2F;etc&#x2F;sudoers  编辑vim &#x2F;etc&#x2F;sudoers 在root ALL&amp;#">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://bu.dusays.com/2024/12/14/675d57804a8f4.png">
+<meta property="article:published_time" content="2024-12-14T10:27:16.000Z">
+<meta property="article:modified_time" content="2024-12-14T15:49:11.603Z">
+<meta property="article:author" content="爱吃玉米常">
+<meta property="article:tag" content="网络">
+<meta property="article:tag" content="宝塔">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://bu.dusays.com/2024/12/14/675d57804a8f4.png"><link rel="shortcut icon" href="https://bu.dusays.com/2024/12/14/675d55bba492a.png"><link rel="canonical" href="http://1.94.234.244/2024/12/14/hexo%E6%90%AD%E5%BB%BA%E5%AE%9D%E5%A1%94%E6%9C%8D%E5%8A%A1%E5%99%A8/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/font-awesome/6.0.0/css/all.min.css"><link rel="stylesheet" href="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/node-snackbar/0.1.16/snackbar.min.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":195,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: {"chs_to_cht":"已切换为繁体中文","cht_to_chs":"已切换为简体中文","day_to_night":"已切换为深色模式","night_to_day":"已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'hexo搭建宝塔服务器',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  isShuoshuo: false
+}</script><link rel="stylesheet" href="/css/custom.css"><link rel="stylesheet" href="/css/cat.css"><link rel="stylesheet" href="/css/modify.css"><link rel="stylesheet" href="/css/iconfont.css"><div id="myscoll"></div><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg" style="background-image: url(https://bu.dusays.com/2024/12/22/6767e88d36cfb.png);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://bu.dusays.com/2024/12/14/675d102b421a9.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">23</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">27</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">19</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fas fa-cubes"></i><span> 说说</span></a></li><li><a class="site-page child" href="/air-conditioner/"><i class="fa-fw iconfont icon-kongtiao"></i><span> 小空调</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://bu.dusays.com/2024/12/14/675d57804a8f4.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">LinBlog</span></a><a class="nav-page-title" href="/"><span class="site-name">hexo搭建宝塔服务器</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fas fa-cubes"></i><span> 说说</span></a></li><li><a class="site-page child" href="/air-conditioner/"><i class="fa-fw iconfont icon-kongtiao"></i><span> 小空调</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">hexo搭建宝塔服务器</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-12-14T10:27:16.000Z" title="发表于 2024-12-14 18:27:16">2024-12-14</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-12-14T15:49:11.603Z" title="更新于 2024-12-14 23:49:11">2024-12-14</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">博客搭建</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/2024/12/14/hexo%E6%90%AD%E5%BB%BA%E5%AE%9D%E5%A1%94%E6%9C%8D%E5%8A%A1%E5%99%A8/#post-comment" itemprop="discussionUrl"><span class="valine-comment-count" data-xid="/2024/12/14/hexo%E6%90%AD%E5%BB%BA%E5%AE%9D%E5%A1%94%E6%9C%8D%E5%8A%A1%E5%99%A8/" itemprop="commentCount"><i class="fa-solid fa-spinner fa-spin"></i></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><blockquote>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43219561/article/details/116719535?fromshare=blogdetail&sharetype=blogdetail&sharerId=116719535&sharerefer=PC&sharesource=weixin_46483957&sharefrom=from_link">原文CSDN：将Hexo部署到云服务器（使用宝塔面板）</a></p>
+</blockquote>
+<h2 id="服务器环境配置"><a href="#服务器环境配置" class="headerlink" title="服务器环境配置"></a>服务器环境配置</h2><h2 id="安装宝塔"><a href="#安装宝塔" class="headerlink" title="安装宝塔"></a>安装宝塔</h2><p><a target="_blank" rel="noopener" href="https://www.bt.cn/new/download.html">宝塔面板下载，免费全能的服务器运维软件</a></p>
+<p><img src="https://bu.dusays.com/2024/12/14/675d42d5787ba.png"></p>
+<h2 id="服务器安装git"><a href="#服务器安装git" class="headerlink" title="服务器安装git"></a>服务器安装git</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum instll -y git</span><br><span class="line">git --version</span><br></pre></td></tr></table></figure>
+
+<h2 id="添加用户"><a href="#添加用户" class="headerlink" title="添加用户"></a>添加用户</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adduser git</span><br></pre></td></tr></table></figure>
+
+<p>改变sudoers文件的权限为文件所有者可写</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> 740 /etc/sudoers</span><br></pre></td></tr></table></figure>
+
+<p>编辑<code>vim /etc/sudoers</code></p>
+<p>在root ALL&#x3D;(ALL) ALL 下方添加一行</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">ALL</span>=(<span class="keyword">ALL</span>) <span class="keyword">ALL</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://bu.dusays.com/2024/12/14/675d4bba98c86.png"></p>
+<p>将其权限修改为文件所有者可读</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> 400 /etc/sudoers</span><br></pre></td></tr></table></figure>
+
+<h2 id="给git用户添加ssh密钥"><a href="#给git用户添加ssh密钥" class="headerlink" title="给git用户添加ssh密钥"></a>给git用户添加ssh密钥</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#在主机端打开powershell，cd到C:\Users\admin\.ssh生成密匙，如已有密匙可跳过这一步</span></span><br><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;taitres.cc&quot;</span></span><br><span class="line"><span class="comment"># -t 指定密钥类型，默认是 rsa ，可以省略</span></span><br><span class="line"><span class="comment"># -C 用于识别这个密钥的注释，可以输入任何内容</span></span><br><span class="line"><span class="comment"># -f 指定密钥文件存储文件名，默认id_rsa</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#在服务器端</span></span><br><span class="line">su git  <span class="comment">#切换到git用户</span></span><br><span class="line"><span class="built_in">mkdir</span> -p ~/.ssh</span><br><span class="line"><span class="built_in">touch</span> ~/.ssh/authorized_keys <span class="comment">#创建authorized_keys文件</span></span><br><span class="line"><span class="built_in">chmod</span> 600 ~/.ssh/authorized_keys  <span class="comment">#为authorized_keys文件赋予文件所有者可读可写的权限</span></span><br><span class="line"><span class="built_in">chmod</span> 700 ~/.ssh  <span class="comment">#为.ssh文件夹赋予文件夹所有者可读可写可执行的权限</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="创建Git仓库"><a href="#创建Git仓库" class="headerlink" title="创建Git仓库"></a>创建Git仓库</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> /home/git/repos    <span class="comment">#新建目录，这是git仓库的位置</span></span><br><span class="line"><span class="built_in">cd</span> /home/git/repos</span><br><span class="line">git init --bare bbling.git <span class="comment">#初始化一个名叫bbling的仓库</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="配置钩子实现自动部署"><a href="#配置钩子实现自动部署" class="headerlink" title="配置钩子实现自动部署"></a>配置钩子实现自动部署</h2><p>找到 <code>/home/git/repos/bbling.git/hooks/post-update.sample</code> 改名<code>post-update</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mv</span> post-update.sample post-update</span><br></pre></td></tr></table></figure>
+
+<p>内容改为</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line">git --work-tree=/www/wwwroot/bbling.cc --git-dir=/home/git/repos/bbling.git checkout -f</span><br></pre></td></tr></table></figure>
+
+<p>然后给权限</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /home/git/repos/bbling.git/hooks/</span><br><span class="line"><span class="built_in">chmod</span> +x post-update  <span class="comment">#赋予其可执行权限</span></span><br><span class="line">su root#切换root用户</span><br><span class="line"><span class="built_in">mkdir</span> /www/wwwroot/bbling.cc <span class="comment">#新建站点文件夹</span></span><br><span class="line"><span class="built_in">chown</span> -R git:git /home/git/repos/ <span class="comment">#仓库所有者改为git</span></span><br><span class="line"><span class="built_in">chown</span> -R git:git /www/wwwroot/bbling.cc/ <span class="comment">#站点文件夹所有者改为git</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="测试Git仓库是否可用"><a href="#测试Git仓库是否可用" class="headerlink" title="测试Git仓库是否可用"></a>测试Git仓库是否可用</h2><p>在主机端，如果能将仓库拉下来，说明Git仓库搭建成功</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git@server_ip:/home/git/repos/bbling.git</span><br></pre></td></tr></table></figure>
+
+<h2 id="本地配置和测试"><a href="#本地配置和测试" class="headerlink" title="本地配置和测试"></a>本地配置和测试</h2><p>修改本地Hexo博客文件夹中的<code>_config.yml</code>文件</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">git@server:/home/git/repos/bbling.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo cl;hexo g;hexo d</span><br></pre></td></tr></table></figure>
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://1.94.234.244">爱吃玉米常</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://1.94.234.244/2024/12/14/hexo%E6%90%AD%E5%BB%BA%E5%AE%9D%E5%A1%94%E6%9C%8D%E5%8A%A1%E5%99%A8/">http://1.94.234.244/2024/12/14/hexo%E6%90%AD%E5%BB%BA%E5%AE%9D%E5%A1%94%E6%9C%8D%E5%8A%A1%E5%99%A8/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://1.94.234.244" target="_blank">LinBlog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%BD%91%E7%BB%9C/">网络</a><a class="post-meta__tags" href="/tags/%E5%AE%9D%E5%A1%94/">宝塔</a></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2024/12/14/windows%E8%84%9A%E6%9C%AC%E8%87%AA%E5%8A%A8%E5%8E%8B%E7%BC%A9%E5%8C%85/" title="windows脚本自动压缩包"><img class="cover" src="https://bu.dusays.com/2024/12/14/675d800fb6761.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">windows脚本自动压缩包</div></div><div class="info-2"><div class="info-item-1">用hexo的时候，在每次修改配置文件之前，总会先要备份一下，以免在更改文件后出现报错但又不知道问题在哪的时候 备份就直接用压缩包对整个博客目录进行压缩改名就行了，但是时间久了感觉非常麻烦，于是就萌生了用.bat脚本直接一键备份顺便改名的想法，在网上找了多个教程进行实操 首先要知道你的winrar软件的根目录在哪里，默认的路径在C:\Program Files\WinRAR\Rar.exe 我的安装在D盘了D:\Program Files (x86)\WinRAR\WinRAR.exe 12@echo off&quot;D:\Program Files (x86)\WinRAR\WinRAR.exe&quot; a -ep1 D:\Program Files\hexo\备份\文件名.rar D:\Program Files\hexo\LinBlog  a 添加文件到压缩文件-ep1 从名称里排除基目录 12@echo off&quot;D:\Program Files (x86)\WinRAR\Rar.exe&quot; a -ep1 D:\Program...</div></div></div></a><a class="pagination-related" href="/2024/12/13/1panel%E6%90%AD%E5%BB%BAhalo/" title="1panel搭建halo"><img class="cover" src="https://bu.dusays.com/2024/12/14/675da3cfb02d3.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">1panel搭建halo</div></div><div class="info-2"><div class="info-item-1">用docker部署 docker的好处是暴漏在外一个端口 由于不可描述原因，docker安装极为困难所以用离线安装docker下的1panel 请自行下载 1Panel 最新版本的离线包，并复制到目标机器的 &#x2F;tmp 目录下。 离线包下载链接: https://community.fit2cloud.com/#/products/1panel/downloads 解压压缩包 12345cd /tmptar zxvf undefined.gzcd 1panel-v1.10.21-lts-linux-amd64/# 运行安装脚本/bin/bash install.sh  设置端口  设置安全入口  设置面板用户名和密码（密码最少8位）  1panel安装完成 1panel命令 1systemctl start 1panel	#启动   将外网地址复制到浏览器打开登录 我得登陆面板为http://192.168.122.85:19625/4c32965de7   参考使用 Docker 部署 | Halo 文档  创建hexo容器 1docker run -it -d...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2024/12/10/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="计算机网络学习笔记"><img class="cover" src="https://bu.dusays.com/2024/12/14/675d9d0138e0f.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-12-10</div><div class="info-item-2">计算机网络学习笔记</div></div><div class="info-2"><div class="info-item-1"> 引用https://www.jiangmen.gov.cn/bmpd/jmszwfwsjglj/ztzl/wlxxaq/xxjs/content/post_1768610.html  前言  端口​	443	https ​	80	http ​	22	ssh ​	21	ftp ​	 题目一已知一个地址块是190.87.140.20229，子网掩码是255255.255.248.(1)求该地址块中的最大地址和最小地址。(4分)(2)求该地址块中共有多少个地址。(4分)(3)求该地址块相当于多少个C类地址块。(4分) </div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://bu.dusays.com/2024/12/14/675d102b421a9.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">爱吃玉米常</div><div class="author-info-description">离目标越来越近</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">23</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">27</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">19</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/linstars"><i class="iconfont icon-github"></i><span>关注我</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/linstars" target="_blank" title="Github"><i class="iconfont icon-GitHub" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:3503460154@qq.com" target="_blank" title="Email"><i class="iconfont icon-email" style="color: #4a7dbe;"></i></a><a class="social-icon" href="https://space.bilibili.com/506230312" target="_blank" title="Bilibili"><i class="iconfont icon-bilibili-fill" style="color: #fb7299;"></i></a><a class="social-icon" href="/images/img/wechat.jpg" target="_blank" title="wechat"><i class="iconfont icon-weixin" style="color: #28db70;"></i></a><a class="social-icon" href="tencent://message/?uin=757453794&amp;Site=&amp;Menu=yes" target="_blank" title="QQ"><i class="iconfont icon-qq" style="color: #19b4d9;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content"><center><b>---本站主域名---<br><a target="_blank" rel="noopener" href="https://bbling.cc">bbling.cc</a>&nbsp&nbsp||&nbsp&nbsp<a target="_blank" rel="noopener" href="https://bbling.cc">前往主域名</a><br>---本站副域名---<br><a target="_blank" rel="noopener" href="https://blog.bbling.cc">blog.bbling.cc</a>&nbsp&nbsp||&nbsp&nbsp<a target="_blank" rel="noopener" href="https://blog.bbling.cc">当前为副域名</a></b><br></center></div></div><div class="card-widget"><div class="item-headline"><i class="iconfont icon-tongjijisuan"></i><span>网站统计</span></div><div class="item-content"><script id="LA-DATA-WIDGET" crossorigin="anonymous" charset="UTF-8" src="https://v6-widget.51.la/v6/Kf60FlZoFC1IdgEb/quote.js?theme=,#333333,#999999,#333333,,,14&col=true&f=14"></script></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="toc-number">1.</span> <span class="toc-text">服务器环境配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%AE%9D%E5%A1%94"><span class="toc-number">2.</span> <span class="toc-text">安装宝塔</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E8%A3%85git"><span class="toc-number">3.</span> <span class="toc-text">服务器安装git</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E7%94%A8%E6%88%B7"><span class="toc-number">4.</span> <span class="toc-text">添加用户</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%99git%E7%94%A8%E6%88%B7%E6%B7%BB%E5%8A%A0ssh%E5%AF%86%E9%92%A5"><span class="toc-number">5.</span> <span class="toc-text">给git用户添加ssh密钥</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BAGit%E4%BB%93%E5%BA%93"><span class="toc-number">6.</span> <span class="toc-text">创建Git仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E9%92%A9%E5%AD%90%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2"><span class="toc-number">7.</span> <span class="toc-text">配置钩子实现自动部署</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95Git%E4%BB%93%E5%BA%93%E6%98%AF%E5%90%A6%E5%8F%AF%E7%94%A8"><span class="toc-number">8.</span> <span class="toc-text">测试Git仓库是否可用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AC%E5%9C%B0%E9%85%8D%E7%BD%AE%E5%92%8C%E6%B5%8B%E8%AF%95"><span class="toc-number">9.</span> <span class="toc-text">本地配置和测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95"><span class="toc-number">10.</span> <span class="toc-text">测试</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/12/16/ubuntu%E5%AD%A6%E4%B9%A0%E6%96%87%E6%A1%A3/" title="Ubuntu学习文档"><img src="https://bu.dusays.com/2024/12/19/6763db749d936.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Ubuntu学习文档"/></a><div class="content"><a class="title" href="/2024/12/16/ubuntu%E5%AD%A6%E4%B9%A0%E6%96%87%E6%A1%A3/" title="Ubuntu学习文档">Ubuntu学习文档</a><time datetime="2024-12-16T10:59:31.000Z" title="发表于 2024-12-16 18:59:31">2024-12-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/15/hexo%E9%A1%B5%E8%84%9A%E6%B7%BB%E5%8A%A0%E9%B1%BC%E5%A1%98/" title="hexo页脚添加鱼塘"><img src="/images/hexo/index_img.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="hexo页脚添加鱼塘"/></a><div class="content"><a class="title" href="/2024/12/15/hexo%E9%A1%B5%E8%84%9A%E6%B7%BB%E5%8A%A0%E9%B1%BC%E5%A1%98/" title="hexo页脚添加鱼塘">hexo页脚添加鱼塘</a><time datetime="2024-12-15T01:55:13.000Z" title="发表于 2024-12-15 09:55:13">2024-12-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/14/windows%E8%84%9A%E6%9C%AC%E8%87%AA%E5%8A%A8%E5%8E%8B%E7%BC%A9%E5%8C%85/" title="windows脚本自动压缩包"><img src="https://bu.dusays.com/2024/12/14/675d800fb6761.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="windows脚本自动压缩包"/></a><div class="content"><a class="title" href="/2024/12/14/windows%E8%84%9A%E6%9C%AC%E8%87%AA%E5%8A%A8%E5%8E%8B%E7%BC%A9%E5%8C%85/" title="windows脚本自动压缩包">windows脚本自动压缩包</a><time datetime="2024-12-14T12:53:23.000Z" title="发表于 2024-12-14 20:53:23">2024-12-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/14/hexo%E6%90%AD%E5%BB%BA%E5%AE%9D%E5%A1%94%E6%9C%8D%E5%8A%A1%E5%99%A8/" title="hexo搭建宝塔服务器"><img src="https://bu.dusays.com/2024/12/14/675d57804a8f4.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="hexo搭建宝塔服务器"/></a><div class="content"><a class="title" href="/2024/12/14/hexo%E6%90%AD%E5%BB%BA%E5%AE%9D%E5%A1%94%E6%9C%8D%E5%8A%A1%E5%99%A8/" title="hexo搭建宝塔服务器">hexo搭建宝塔服务器</a><time datetime="2024-12-14T10:27:16.000Z" title="发表于 2024-12-14 18:27:16">2024-12-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/13/1panel%E6%90%AD%E5%BB%BAhalo/" title="1panel搭建halo"><img src="https://bu.dusays.com/2024/12/14/675da3cfb02d3.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="1panel搭建halo"/></a><div class="content"><a class="title" href="/2024/12/13/1panel%E6%90%AD%E5%BB%BAhalo/" title="1panel搭建halo">1panel搭建halo</a><time datetime="2024-12-13T09:17:58.000Z" title="发表于 2024-12-13 17:17:58">2024-12-13</time></div></div></div></div></div></div></main><footer id="footer" style="background: transparent;"><div id="footer-wrap"><div id="ft"><div class="ft-item-1"><div class="t-top"><div class="t-t-l"><p class="ft-t t-l-t">说点什么</p><div class="bg-ad"><div>（经过一下午的百般周折，也是成功将本网页从wordpress换成了hexo并部署到服务器，目前使用的宝塔搭配hexo静态仓库部署）</div><div class="btn-xz-box"><a class="btn-xz" href="/air-conditioner/">前往吹空调、聊天~</a></div></div></div><div class="t-t-r"><p class="ft-t t-l-t">修仙导航</p><ul class="ft-links"><li><a target="_blank" rel="noopener" href="https://bbling.cc/2024/12/02/hexo%E6%90%AD%E5%BB%BA/">建站指南</a><a target="_blank" rel="noopener" href="https://7bu.top/">推荐图床</a></li><li><a target="_blank" rel="noopener" href="https://fontawesome.com/">图标库</a><a target="_blank" rel="noopener" href="https://tinypng.com/">在线压缩图片</a></li><li><a target="_blank" rel="noopener" href="https://fontawesome.dashgame.com/">图标库2</a><a href="/archives/">文章归档</a></li><li><a href="/categories/">文章分类</a><a href="/tags/">文章标签</a></li><li><a target="_blank" rel="noopener" href="https://v6.51.la/">网站统计</a><a target="_blank" rel="noopener" href="https://www.bilibili.com/">我的追番</a></li><li><a href="/shuoshuo/">随手记</a><a href="/gallery/">一些壁纸</a></li></ul></div></div></div><div class="ft-item-2"><p class="ft-t">推荐友链</p><div class="ft-img-group"><div class="img-group-item"><a target="_blank" rel="noopener" href="https://cnhuazhu.top/butterfly/"><img src="https://bu.dusays.com/2024/12/22/6767ba6eb5ee2.jpg" alt="Hexo "/></a></div><div class="img-group-item"><a target="_blank" rel="noopener" href="https://fomal.cc/"><img src="https://bu.dusays.com/2024/12/22/6767babe00d2e.jpg" alt="Fomalhaut🥝"/></a></div><div class="img-group-item"><a target="_blank" rel="noopener" href="https://haiyong.site/"><img src="https://bu.dusays.com/2024/12/22/6767badb1aa03.png" alt="热于分享海拥"/></a></div><div class="img-group-item"><a target="_blank" rel="noopener" href="https://razeen.me/"><img src="https://bu.dusays.com/2024/12/22/6767baf98eba7.png" alt="一位爱折腾的程序员。Razeen"/></a></div><div class="img-group-item"><a target="_blank" rel="noopener" href="https://fe32.top/"><img src="https://bu.dusays.com/2022/05/02/626f92e193879.jpg" alt="唐志远"/></a></div><div class="img-group-item"><a target="_blank" rel="noopener" href="https://android99.com/"><img src="https://android99.com/img/avatar.png" alt="边缘矩阵"/></a></div><div class="img-group-item"><a target="_blank" rel="noopener" href="https://blog.captainz.cc/posts/hexo_butterfly_top_img.html"><img src="https://blog.captainz.cc/picture/0.webp" alt="闪闪发光的ZZZ"/></a></div><div class="img-group-item"><a target="_blank" rel="noopener" href="https://blog.anheyu.com/"><img src="https://npm.elemecdn.com/anzhiyu-blog-static@1.0.4/img/avatar.jpg" alt="安知鱼"/></a></div></div></div></div><div class="copyright">&copy;2020 - 2024  <i id="heartbeat" class="fa fas fa-heartbeat"></i> 爱吃玉米常</div><div class="footer_custom_text"><img src="/img/icp.png"><a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">豫ICP备2024063535号-1</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button><button id="go-down" type="button" title="直达底部" onclick="btf.scrollToDest(document.body.scrollHeight, 500)"><i class="fas fa-arrow-down"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/node-snackbar/0.1.16/snackbar.min.js"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.isShuoshuo
+  const option = null
+
+  const initValine = (el, path) => {
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyValine = () => {
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+
+    const valineConfig = {
+      el: '#vcomment',
+      appId: '3eWZMlM9tT0NRgGJ577h51M1-gzGzoHsz',
+      appKey: 'K8Eklo65nqNDps1YU0Q59ZrX',
+      avatar: 'monsterid',
+      serverURLs: 'bbling.cc',
+      emojiMaps: "",
+      visitor: false,
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || window.location.pathname
+    }
+
+    new Valine(valineConfig)
+  }
+
+  const loadValine = async (el, path) => {
+    if (typeof Valine === 'function') {
+      initValine(el, path)
+    } else {
+      await btf.getScript('https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/valine/1.4.16/Valine.min.js')
+      initValine(el, path)
+    }
+  }
+
+  if (isShuoshuo) {
+    'Valine' === 'Valine'
+      ? window.shuoshuoComment = { loadComment: loadValine }
+      : window.loadOtherComment = loadValine
+    return
+  }
+
+  if ('Valine' === 'Valine' || !false) {
+    if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+    else setTimeout(loadValine, 0)
+  } else {
+    window.loadOtherComment = loadValine
+  }
+})()</script></div><script defer data-pjax src="/js/cat.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

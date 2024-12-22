@@ -1,0 +1,391 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>网络安全竞赛 | LinBlog</title><meta name="author" content="爱吃玉米常"><meta name="copyright" content="爱吃玉米常"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Nmap工具默认nmap只扫描常用的1000的端口 要扫描所有端口需要在命令里加上-p- 扫描指定的端口使用-p端口来指定 以上两个都不会扫描UDP端口，要扫描UDP端口需要加上U，如下 T表示tcp，U表示UDP 12nmap -sT 目标nmap -sU 目标  TCP扫描正常的TCP建立连接需要进行三次握手，  主机发送SYN到目标主机，目标主机回复SYN ACK表示我收到了，主机收到后回复">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网络安全竞赛">
+<meta property="og:url" content="http://1.94.234.244/2024/11/25/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B/index.html">
+<meta property="og:site_name" content="LinBlog">
+<meta property="og:description" content="Nmap工具默认nmap只扫描常用的1000的端口 要扫描所有端口需要在命令里加上-p- 扫描指定的端口使用-p端口来指定 以上两个都不会扫描UDP端口，要扫描UDP端口需要加上U，如下 T表示tcp，U表示UDP 12nmap -sT 目标nmap -sU 目标  TCP扫描正常的TCP建立连接需要进行三次握手，  主机发送SYN到目标主机，目标主机回复SYN ACK表示我收到了，主机收到后回复">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://bu.dusays.com/2024/12/19/6763d3e3abe11.png">
+<meta property="article:published_time" content="2024-11-25T12:55:05.000Z">
+<meta property="article:modified_time" content="2024-12-21T02:54:07.392Z">
+<meta property="article:author" content="爱吃玉米常">
+<meta property="article:tag" content="ctf">
+<meta property="article:tag" content="网络安全">
+<meta property="article:tag" content="写隐术">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://bu.dusays.com/2024/12/19/6763d3e3abe11.png"><link rel="shortcut icon" href="https://bu.dusays.com/2024/12/14/675d55bba492a.png"><link rel="canonical" href="http://1.94.234.244/2024/11/25/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/font-awesome/6.0.0/css/all.min.css"><link rel="stylesheet" href="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/node-snackbar/0.1.16/snackbar.min.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":195,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: {"chs_to_cht":"已切换为繁体中文","cht_to_chs":"已切换为简体中文","day_to_night":"已切换为深色模式","night_to_day":"已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '网络安全竞赛',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  isShuoshuo: false
+}</script><link rel="stylesheet" href="/css/custom.css"><link rel="stylesheet" href="/css/cat.css"><link rel="stylesheet" href="/css/modify.css"><link rel="stylesheet" href="/css/iconfont.css"><div id="myscoll"></div><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg" style="background-image: url(https://bu.dusays.com/2024/12/22/6767e88d36cfb.png);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://bu.dusays.com/2024/12/14/675d102b421a9.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">23</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">27</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">19</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fas fa-cubes"></i><span> 说说</span></a></li><li><a class="site-page child" href="/air-conditioner/"><i class="fa-fw iconfont icon-kongtiao"></i><span> 小空调</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://bu.dusays.com/2024/12/19/6763d3e3abe11.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">LinBlog</span></a><a class="nav-page-title" href="/"><span class="site-name">网络安全竞赛</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fas fa-cubes"></i><span> 说说</span></a></li><li><a class="site-page child" href="/air-conditioner/"><i class="fa-fw iconfont icon-kongtiao"></i><span> 小空调</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">网络安全竞赛</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-11-25T12:55:05.000Z" title="发表于 2024-11-25 20:55:05">2024-11-25</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-12-21T02:54:07.392Z" title="更新于 2024-12-21 10:54:07">2024-12-21</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/2024/11/25/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B/#post-comment" itemprop="discussionUrl"><span class="valine-comment-count" data-xid="/2024/11/25/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B/" itemprop="commentCount"><i class="fa-solid fa-spinner fa-spin"></i></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="Nmap工具"><a href="#Nmap工具" class="headerlink" title="Nmap工具"></a>Nmap工具</h1><p>默认nmap只扫描常用的1000的端口</p>
+<p>要扫描所有端口需要在命令里加上<code>-p-</code></p>
+<p>扫描指定的端口使用<code>-p端口</code>来指定</p>
+<p>以上两个都不会扫描UDP端口，要扫描UDP端口需要加上<code>U</code>，如下</p>
+<p><code>T</code>表示<code>tcp</code>，<code>U</code>表示<code>UDP</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nmap -sT 目标</span><br><span class="line">nmap -sU 目标</span><br></pre></td></tr></table></figure>
+
+<h2 id="TCP扫描"><a href="#TCP扫描" class="headerlink" title="TCP扫描"></a>TCP扫描</h2><p>正常的TCP建立连接需要进行三次握手，</p>
+<p><img src="https://bu.dusays.com/2024/12/20/676553dd6a3b8.png"></p>
+<p>主机发送<code>SYN</code>到目标主机，目标主机回复<code>SYN ACK</code>表示我收到了，主机收到后回复<code>SYN</code>开始建立连接</p>
+<p><code>nmap -sT</code>同样也会完成握手动作的，只不过当目标主机发送数据过来的时候，nmap不会发送正常的数据，而是会发送<code>RST</code>进行会话的中断</p>
+<p>正常结束<code>TCP</code>会话是需要发送<code>FIN</code>的</p>
+<p>在TCP报文的报头中，有几个标志字段：</p>
+<table>
+<thead>
+<tr>
+<th align="center">SYN</th>
+<th align="center">ACK</th>
+<th align="center">RST</th>
+<th align="center">FIN</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">同步连接序号，请求建立连接</td>
+<td align="center">请求&#x2F;应答状态</td>
+<td align="center">连线复位</td>
+<td align="center">结束连线。</td>
+</tr>
+</tbody></table>
+<p>1、 SYN：同步连接序号，TCP SYN报文就是把这个标志设置为1，来请求建立连接；<br>2、 ACK：请求&#x2F;应答状态。0为请求，1为应答；<br>3、 FIN：结束连线。如果FIN为0是结束连线请求，FIN为1表示结束连线；<br>4、 RST：连线复位，首先断开连接，然后重建；<br>5、 PSH：通知协议栈尽快把TCP数据提交给上层程序处理。</p>
+<hr>
+<h2 id="详细TCP三次握手"><a href="#详细TCP三次握手" class="headerlink" title="详细TCP三次握手"></a>详细TCP三次握手</h2><blockquote>
+<p>引用<a target="_blank" rel="noopener" href="https://blog.csdn.net/Leeeoplod/article/details/128079890">一文读懂TCP的三次握手（详细图解）_tcp三次握手图解-CSDN博客</a></p>
+</blockquote>
+<p><strong>详细TCP三次握手过程:</strong></p>
+<p>在学习TCP三次握手的过程前，首先熟悉几个缩写简称：</p>
+<table>
+<thead>
+<tr>
+<th>状态</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>TCB</td>
+<td>传输控制块，打开后服务器&#x2F;客户端进入监听（LISTEN）状态</td>
+</tr>
+<tr>
+<td>SYN</td>
+<td>TCP报文标志位，该位为1时表示发起一个新连接</td>
+</tr>
+<tr>
+<td>ACK</td>
+<td>TCP报文标志位，该位为1时，确认序号有效,确认接收到消息。TCP规定，在连接建立后所有报文的传输都必须把ACK置1</td>
+</tr>
+<tr>
+<td>seq</td>
+<td>sequence number，报文初始序列号，代表发送的第一个字节的序号</td>
+</tr>
+<tr>
+<td>ack</td>
+<td>acknowledgement number，报文确认序号，代表希望收到的下一个数据的第一个字节的序号</td>
+</tr>
+</tbody></table>
+<pre><code>熟悉上面几个标志位和序列号含义后，下面来看TCP的三次握手过程：
+</code></pre>
+<p>先上几个帮助理解的点：<br>不管请求还是应答，都是带两种数据：请求号SYN&#x2F;应答号ACK + 数据包报文号；</p>
+<p>请求时要发请求号<code>SYN</code>，应答时要发送应答号<code>ACK</code>在数据包传送时，发送方要发送当前数据包报文号seq和确认收到上一个数据包的确认报文号ack。</p>
+<p><img src="https://i-blog.csdnimg.cn/blog_migrate/48ca501712822a88fa93e67cbf982da9.png"></p>
+<p>第一次握手：客户端——请求（发送请求SYN+数据包当前序列号seq，无需应答）</p>
+<p>客户端创建传输控制块TCB，进入监听LISTEN状态。<br>设置SYN&#x3D;1，表示这是握手报文，并发送给服务器<br>设置发送的数据包序列号seq&#x3D;x<br>此时客户端处于同步已发送SYN-SENT状态</p>
+<p>第二次握手：服务器——确认（发送应答ACK+请求SYN+确认收到上一个数据包的确认号ack+ 当前数据包序列号seq）<br>设置ACK&#x3D;1，表示确认应答。<br>设置ack&#x3D;x+1，表示已收到客户端x之前的数据，希望下次数据从x+1开始<br>设置SYN&#x3D;1，表示握手报文，并发送给客户端<br>设置发送的数据包序列号seq&#x3D;y<br>此时服务器处于同步已接收SYN-RCVD状态</p>
+<p>第三次握手：客户端——确认服务器的确认（发送应答ACK+确认收到上一个数据包的确认号ack+ 当前数据包序列号seq ，连接已建立，无需请求）<br>设置ACK&#x3D;1，表示确认应答。<br>设置ack&#x3D;y+1，表示收到服务器发来的序列号为seq&#x3D;y的数据包，希望下次数据从y+1开始<br>设置seq&#x3D;x+1，表示接着上一个数据包seq&#x3D;x继续发送<br>至此三次握手结束，连接建立</p>
+<hr>
+<p>​	</p>
+<p>同样是以<code>TCP</code>数据段里表示会话的状态的，使用<code>nmap sT</code>会存在一定的副作用，</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -sT 127.0.0.1</span><br></pre></td></tr></table></figure>
+
+<p>首先因为需要完成握手的整个动作的过程，因此比较花时间，其次目标主机通常会对完成握手的会话进行日志的记录，扫描的时候容易留下痕迹，我们也不能完全否认<code>nmap -sT</code>的作用，因为只要目标主机发送了<code>SYN/ACK</code>包过来，<code>nmap</code>就可以标记这个端口是open开放状态的了，如果目标主机返回的不是<code>SYN/ACK</code>包，而是<code>RST</code>包，nmap则会记录这个端口为<code>closed</code>关闭状态，如果<code>nmap</code>发送SYN包以后没有收到回复的话，那就很有可能被防火墙阻挡了，此时nmap就会标记端口为filtered被过滤状态了，为了不留下明显的痕迹需要用高级一点的<code>nmap -sS</code></p>
+<p>当收到目标主机发送过来的<code>SYN/ACK</code>的时候<code>nmap</code>不会走完整个TCP握手过程，不会发送FIN而是发送<code>RST</code>，在收到目标主机的<code>SYN/ACK</code>的时候，其实也是确认了访问这个的端口是开放的，既然目的达到了，自然就用<code>RST</code>赶紧结束会话了，如果收到的不是<code>SYN/ACK</code>而是<code>RST</code>，则表示目标主机的这个端口关闭了，如果连<code>RST</code>都没收到，什么都没有收到的话，那大概率是被防火墙拦截了，也就是会标记为“过滤”，另外收到<code>ICMP</code>报错消息，也会被标记为“过滤”。</p>
+<p><img src="https://bu.dusays.com/2024/12/20/6765590215d47.png"></p>
+<p>如果直接发送<code>RST</code>不是更省事吗，但是目标主机会以为你没有收到<code>SYN/ACK</code>，导致目标主机重传，nmap在这里只是想要了解信息，并不是要进行破坏或者资源的浪费，因为<code>nmap -sS</code>没有完成整个握手过程，因此被称为“半连接”扫描，或者“半开”扫描，还可以叫做<code>SYN</code>扫描，对于nmap的TCP扫描来说，nmap的<code>SYN</code>扫描能够更快达到目的，而且因为没有完成握手的过程，相对来说不被保存日志的几率会更低，就更不容易留下痕迹了</p>
+<p>如果直接用nmap进行扫描，默认会进行TCP连接扫描，如果加上<code>sudo</code>，默认则是用<code>SYN</code>半连接进行扫描</p>
+<p><img src="https://bu.dusays.com/2024/12/20/67655aeca9cc1.png"></p>
+<h2 id="UDP扫描"><a href="#UDP扫描" class="headerlink" title="UDP扫描"></a>UDP扫描</h2><p><code>UDP</code>不像<code>TCP</code>扫描和<code>SYN</code>那样，都以收到<code>SYN/ACK</code>来判断端口的开放。<code>UDP</code>没有<code>ACK</code>这样的确认机制 ，也就是说，<code>UDP</code>只能依靠目标主机的回复做出判断</p>
+<p>问题是对于大部分端口，<code>nmap</code>发送的数据包没有负载，对方相当于收到一个空包，这样的数据包一般不会收到主机目标的回复，另外如果防火墙丢了你的包，一般也不作回复，因此在使用<code>UDP</code>扫描的时候会经常看到<code>open</code>和<code>filtered</code>一起显示，此时端口可能开放了，也可能被防火墙阻挡了</p>
+<p><img src="https://bu.dusays.com/2024/12/20/67656eed89c6d.png"></p>
+<p>那如果<code>UDP</code>包收到回复了呢，此时并不是有鬼，而是如果<code>UDP</code>端口关闭了，一般会回复类型和代码为3的<code>ICMP</code>包</p>
+<p>那我们如何判断<code>UDP</code>端口是开放还是被过滤了呢</p>
+<p>小技巧是使用<code>nmap -sUV</code> 这里加的V会进行版本扫描，<code>nmap</code>会在<code>open|filtered</code>的端口中做探测 ，确认运行的软件版本</p>
+<p>，从而明确端口为开放的状态，使用UDP会有一个痛点就是慢，毕竟目标主机不会回复没有负载的<code>UDP</code>包，加上防火墙以及限流的关系，导致诸多不确定因素，因此同一端口<code>nmap</code>一般会出现太多次探测请求的情况，<code>UDP</code>扫描最好配合其他选项进行探测，例如</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -sUV --top-ports</span><br></pre></td></tr></table></figure>
+
+<p>意思是扫描常用的端口，如果加上数字<code>100</code>，则表示扫描常用的100个<code>UDP</code>端口</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -sUV --top-ports 100</span><br></pre></td></tr></table></figure>
+
+<h2 id="icmp和ping扫描"><a href="#icmp和ping扫描" class="headerlink" title="icmp和ping扫描"></a>icmp和ping扫描</h2><p>端口扫描是nmap的核心功能，主机发现也是一个重点，一般是先探测有哪些主机是在运行，然后再对正在运行的主机进行端口扫描，查看它开放了什么服务以及放行了哪些端口。</p>
+<p>在没有学习nmap之前我们一般用ping命令，来查看是否能和目标主机连通，从而确定目标主机是否在运行</p>
+<p>在nmap里直接用<code>nmap -sn</code>就可以进行<code>ping</code>扫描了 ，和直接用ping命令不同的是，单独的<code>ping</code>命令一次只能ping一个地址</p>
+<p>而nmap在这里可以用<code>-</code>表示IP的范围，当然也可以用<code>CIDR</code>的方式来指明范围</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nmap -sn 192.168.122.1-100</span><br><span class="line">nmap -sn 192.168.122.0/24</span><br></pre></td></tr></table></figure>
+
+<p>不管是本地，还是远程的网络我们都可以用<code>nmap -sn</code>来进行，不同的是，扫描本地网络实际上用了<code>ARP协议</code>进行请求，扫描远程网络则用了<code>ICMP协议</code>，还会利用<code>TCP</code> <code>SYN</code> 和<code>TCP</code> <code>ACK</code>进行主机发现，可是遇到用windows服务器就要注意了比如2016，2019，2022这样的版本防火墙会默认屏蔽掉所有<code>ICMP包</code> ，如果继续用<code>nmap -sn</code>就会进入死胡同了</p>
+<p><img src="https://bu.dusays.com/2024/12/20/67657e963d4d5.gif"></p>
+<p>此时<code>nmap -Pn</code>会更实用，<code>-Pn</code>相当于No Ping，不要ping了，以此来绕过防火墙的阻挡</p>
+<p><img src="https://bu.dusays.com/2024/12/20/67657f07d0dd8.png"></p>
+<p>但是这个命令非常耗时间，因为nmap会假设目标主机是正在运行的，如果目标主机没有在运行，会导致nmap重复探测</p>
+<h1 id="sqlmap常用参数"><a href="#sqlmap常用参数" class="headerlink" title="sqlmap常用参数"></a>sqlmap常用参数</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -u &quot;地址&quot; --current-db --batch</span><br><span class="line">sqlmap -u &quot;地址&quot; -D 库名 --tables --batch</span><br><span class="line">sqlmap -u &quot;地址&quot; -D 库名 -T 表名 --dump --batch</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>–current-db获取当前使用的数据库</li>
+<li>–batch保持默认选项</li>
+<li>-D参数用来指定库名</li>
+<li>–tables用来获取-D参数指定的库下的所有表名</li>
+<li>–tables用来获取-D参数指定的库下的所有表名</li>
+<li>–dump表示获取表的数据</li>
+</ul>
+<h3 id="1-基本参数"><a href="#1-基本参数" class="headerlink" title="1.基本参数"></a>1.基本参数</h3><ul>
+<li><p><code>-u &lt;URL&gt;</code>：指定目标URL<code>-u &quot;http://example.com/vuln?id=1&quot;</code></p>
+</li>
+<li><p><code>-r &lt;请求文件&gt;</code>：从</p>
+</li>
+<li><p><code>-m &lt;文件&gt;</code>：从文件读取</p>
+</li>
+<li><p><code>--data &lt;数据&gt;</code>：发送POST请求数据</p>
+</li>
+<li><p><code>--cookie &lt;cookie&gt;</code>：指定要发送的 Cookie</p>
+</li>
+<li><p><code>--user-agent &lt;agent&gt;</code>：设置User-Agent</p>
+</li>
+<li><p><code>--random-agent</code>：随机选择User-Agent</p>
+</li>
+<li><p><code>--referer &lt;referer&gt;</code>：设置</p>
+<h3 id="检测选项"><a href="#检测选项" class="headerlink" title="检测选项"></a>检测选项</h3></li>
+</ul>
+<h3 id="2-检测选项"><a href="#2-检测选项" class="headerlink" title="2.检测选项"></a>2.检测选项</h3><ul>
+<li><code>--level &lt;level&gt;</code>：设置检测</li>
+<li><code>--risk &lt;risk&gt;</code>：设置风险</li>
+<li><code>--technique &lt;tech&gt;</code>指定地点：<code>B</code>（<code>E</code>（报错）<code>U</code>（联合查询）、&#96;&#96;S<code>（堆</code>T&#96;（时间盲</li>
+<li><code>--time-sec &lt;seconds&gt;</code>：设置时间盲注</li>
+</ul>
+<h3 id="3-杂"><a href="#3-杂" class="headerlink" title="3.杂"></a>3.杂</h3><ul>
+<li><code>--dbs</code>：枚举。</li>
+<li><code>--tables</code>：参加研究的<code>--tables -D testdb</code></li>
+<li><code>--columns</code>：体育节目的<code>--columns -D testdb -T users</code></li>
+<li><code>--dump</code>：<code>--dump -D testdb -T users</code></li>
+<li><code>--dump-all</code>：導</li>
+<li><code>--search</code>：搜索数据库</li>
+</ul>
+<h3 id="4-绕过"><a href="#4-绕过" class="headerlink" title="4. 绕过"></a>4. 绕过</h3><ul>
+<li><code>--tamper &lt;scripts&gt;</code>：指定<code>--tamper=space2comment</code>。</li>
+<li><code>--delay &lt;秒&gt;</code>：设置每次请求</li>
+<li><code>--timeout &lt;秒&gt;</code>：设置请求</li>
+</ul>
+<h3 id="5-认证参数"><a href="#5-认证参数" class="headerlink" title="5.认证参数"></a>5.认证参数</h3><ul>
+<li><code>--auth-type &lt;类型&gt;</code>：设置认证类型，支持<code>Basic</code>、<code>摘要</code>Digest<code>、</code>NTLM&#96;等。</li>
+<li><code>--auth-cred &lt;用户:密码&gt;</code>：</li>
+<li><code>--proxy &lt;代理&gt;</code>：设置HTTP<code>--proxy=http://127.0.0.1:8080</code></li>
+<li><code>--tor</code>：</li>
+</ul>
+<h3 id="6-输出控制"><a href="#6-输出控制" class="headerlink" title="6. 输出控制"></a>6. 输出控制</h3><ul>
+<li><code>--batch</code>：自动接受默认</li>
+<li><code>-o</code>：保存扫描</li>
+<li><code>--output-dir &lt;目录&gt;</code>：指定</li>
+</ul>
+<h3 id="7-实例"><a href="#7-实例" class="headerlink" title="7. 实例"></a>7. 实例</h3><p>例如，使用<code>sqlmap</code>进行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -u &quot;http://example.com/vuln?id=1&quot; --dbs</span><br></pre></td></tr></table></figure>
+
+<p>这个命令会尝试检测目标页面的 SQL 注入漏洞并推出可用的数据库。</p>
+<h1 id="摩斯密码音频隐写"><a href="#摩斯密码音频隐写" class="headerlink" title="摩斯密码音频隐写"></a>摩斯密码音频隐写</h1><h2 id="工具解密"><a href="#工具解密" class="headerlink" title="工具解密"></a>工具解密</h2><p>使用像Audacity这样的音频处理软件打开文件，然后可以在音道的最上边看到一些特殊的:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://iboxgalileogiftedschoolor-my.sharepoint.com/personal/wangshusong_auooo_com/_layouts/15/guestaccess.aspx?docid=0f7d6900c9d0e49f6847482800cec4f0c&authkey=AZdJzcQaggeMsOlvhXc-cZs&e=zV8BNd">Audacity</a></li>
+</ul>
+<p><img src="https://bu.dusays.com/2024/12/21/67662d486c456.png" alt="img"></p>
+<p>看起来是一个摩斯电码，短线代表 <code>.</code>，长线代表 <code>-</code>，最后摩斯电码翻译如下:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.... -... -.-. ----. ..--- ..... -.... ....- ----. -.-. -... ----- .---- ---.. ---.. --.- ..... ..--- . -.... .---- --... -.. --... ----- ----. ..--- ----. .---- ----. .---- -.-.</span><br></pre></td></tr></table></figure>
+
+<p>摩斯电码解码得到:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HBC925649CB0188Q52E617D70929191C</span><br></pre></td></tr></table></figure>
+
+<p>md5解密得到<code>valar dohaeris</code></p>
+<p>试了不对，又试了md5值的小写，通过了</p>
+<p>flag：<code>5bc925649cb0188f52e617d70929191c</code></p>
+<h2 id="Python摩斯电码解密"><a href="#Python摩斯电码解密" class="headerlink" title="Python摩斯电码解密"></a>Python摩斯电码解密</h2><p>摩斯电码解密可以使用诸多在线网站，当然也可以用Python进行解密：</p>
+<figure class="highlight hsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># -*- coding:utf<span class="number">-8</span> -*-</span></span><br><span class="line">s = <span class="keyword">input</span>(<span class="string">&quot;input the cipher_text Enclose with quotes:&quot;</span>)</span><br><span class="line">codebook = &#123;</span><br><span class="line">    <span class="string">&#x27;A&#x27;</span>:<span class="string">&quot;.-&quot;</span>,</span><br><span class="line">    <span class="string">&#x27;B&#x27;</span>:<span class="string">&quot;-...&quot;</span>,</span><br><span class="line">    <span class="string">&#x27;C&#x27;</span>:<span class="string">&quot;-.-.&quot;</span>,</span><br><span class="line">    <span class="string">&#x27;D&#x27;</span>:<span class="string">&quot;-..&quot;</span>,</span><br><span class="line">    <span class="string">&#x27;E&#x27;</span>:<span class="string">&quot;.&quot;</span>,</span><br><span class="line">    <span class="string">&#x27;F&#x27;</span>:<span class="string">&quot;..-.&quot;</span>,</span><br><span class="line">    <span class="string">&#x27;G&#x27;</span>:<span class="string">&quot;--.&quot;</span>,</span><br><span class="line">    <span class="string">&#x27;H&#x27;</span>:<span class="string">&quot;....&quot;</span>,</span><br><span class="line">    <span class="string">&#x27;I&#x27;</span>:<span class="string">&quot;..&quot;</span>,</span><br><span class="line">    <span class="string">&#x27;J&#x27;</span>:<span class="string">&quot;.---&quot;</span>,</span><br><span class="line">    <span class="string">&#x27;K&#x27;</span>:<span class="string">&quot;-.-&quot;</span>,</span><br><span class="line">    <span class="string">&#x27;L&#x27;</span>:<span class="string">&quot;.-..&quot;</span>,</span><br><span class="line">    <span class="string">&#x27;M&#x27;</span>:<span class="string">&quot;--&quot;</span>,</span><br><span class="line">    <span class="string">&#x27;N&#x27;</span>:<span class="string">&quot;-.&quot;</span>,</span><br><span class="line">    <span class="string">&#x27;O&#x27;</span>:<span class="string">&quot;---&quot;</span>,</span><br><span class="line">    <span class="string">&#x27;P&#x27;</span>:<span class="string">&quot;.--.&quot;</span>,</span><br><span class="line">    <span class="string">&#x27;Q&#x27;</span>:<span class="string">&quot;--.-&quot;</span>,</span><br><span class="line">    <span class="string">&#x27;R&#x27;</span>:<span class="string">&quot;.-.&quot;</span>,</span><br><span class="line">    <span class="string">&#x27;S&#x27;</span>:<span class="string">&quot;...&quot;</span>,</span><br><span class="line">    <span class="string">&#x27;T&#x27;</span>:<span class="string">&quot;-&quot;</span>,</span><br><span class="line">    <span class="string">&#x27;U&#x27;</span>:<span class="string">&quot;..-&quot;</span>,</span><br><span class="line">    <span class="string">&#x27;V&#x27;</span>:<span class="string">&quot;.--&quot;</span>,</span><br><span class="line">    <span class="string">&#x27;W&#x27;</span>:<span class="string">&quot;.--&quot;</span>,</span><br><span class="line">    <span class="string">&#x27;X&#x27;</span>:<span class="string">&quot;-..-&quot;</span>,</span><br><span class="line">    <span class="string">&#x27;Y&#x27;</span>:<span class="string">&quot;-.--&quot;</span>,</span><br><span class="line">    <span class="string">&#x27;Z&#x27;</span>:<span class="string">&quot;--..&quot;</span>,</span><br><span class="line">    <span class="string">&#x27;1&#x27;</span>:<span class="string">&quot;.----&quot;</span>,</span><br><span class="line">    <span class="string">&#x27;2&#x27;</span>:<span class="string">&quot;..---&quot;</span>,</span><br><span class="line">    <span class="string">&#x27;3&#x27;</span>:<span class="string">&quot;...---&quot;</span>,</span><br><span class="line">    <span class="string">&#x27;4&#x27;</span>:<span class="string">&quot;....-&quot;</span>,</span><br><span class="line">    <span class="string">&#x27;5&#x27;</span>:<span class="string">&quot;.....&quot;</span>,</span><br><span class="line">    <span class="string">&#x27;6&#x27;</span>:<span class="string">&quot;-....&quot;</span>,</span><br><span class="line">    <span class="string">&#x27;7&#x27;</span>:<span class="string">&quot;--...&quot;</span>,</span><br><span class="line">    <span class="string">&#x27;8&#x27;</span>:<span class="string">&quot;---..&quot;</span>,</span><br><span class="line">    <span class="string">&#x27;9&#x27;</span>:<span class="string">&quot;----.&quot;</span>,</span><br><span class="line">    <span class="string">&#x27;0&#x27;</span>:<span class="string">&quot;-----&quot;</span>,</span><br><span class="line">    <span class="string">&#x27;.&#x27;</span>:<span class="string">&quot;.━.━.━&quot;</span>,</span><br><span class="line">    <span class="string">&#x27;?&#x27;</span>:<span class="string">&quot;..--..&quot;</span>,</span><br><span class="line">    <span class="string">&#x27;!&#x27;</span>:<span class="string">&quot;-.-.--&quot;</span>,</span><br><span class="line">    <span class="string">&#x27;(&#x27;</span>:<span class="string">&quot;-.--.&quot;</span>,</span><br><span class="line">    <span class="string">&#x27;@&#x27;</span>:<span class="string">&quot;.--.-.&quot;</span>,</span><br><span class="line">    <span class="string">&#x27;:&#x27;</span>:<span class="string">&quot;---...&quot;</span>,</span><br><span class="line">    <span class="string">&#x27;=&#x27;</span>:<span class="string">&quot;-...-&quot;</span>,</span><br><span class="line">    <span class="string">&#x27;-&#x27;</span>:<span class="string">&quot;-....-&quot;</span>,</span><br><span class="line">    <span class="string">&#x27;)&#x27;</span>:<span class="string">&quot;-.--.-&quot;</span>,</span><br><span class="line">    <span class="string">&#x27;+&#x27;</span>:<span class="string">&quot;.-.-.&quot;</span>,</span><br><span class="line">    <span class="string">&#x27;,&#x27;</span>:<span class="string">&quot;--..--&quot;</span>,</span><br><span class="line">    <span class="string">&#x27;\&#x27;&#x27;</span>:<span class="string">&quot;.----.&quot;</span>,</span><br><span class="line">    <span class="string">&#x27;_&#x27;</span>:<span class="string">&quot;..--.-&quot;</span>,</span><br><span class="line">    <span class="string">&#x27;$&#x27;</span>:<span class="string">&quot;...-..-&quot;</span>,</span><br><span class="line">    <span class="string">&#x27;;&#x27;</span>:<span class="string">&quot;-.-.-.&quot;</span>,</span><br><span class="line">    <span class="string">&#x27;/&#x27;</span>:<span class="string">&quot;-..-.&quot;</span>,</span><br><span class="line">    <span class="string">&#x27;\&quot;&#x27;</span>:<span class="string">&quot;.-..-.&quot;</span>,</span><br><span class="line">&#125;</span><br><span class="line">clear = <span class="string">&quot;&quot;</span></span><br><span class="line">cipher = <span class="string">&quot;&quot;</span></span><br><span class="line"> </span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">6</span></span><br><span class="line"><span class="number">7</span></span><br><span class="line"><span class="number">8</span></span><br><span class="line"><span class="number">9</span></span><br><span class="line"><span class="number">10</span></span><br><span class="line"><span class="number">11</span></span><br><span class="line"><span class="number">12</span></span><br><span class="line"><span class="number">13</span></span><br><span class="line"><span class="number">14</span></span><br><span class="line"><span class="number">15</span></span><br><span class="line"><span class="number">16</span></span><br><span class="line"><span class="number">17</span></span><br><span class="line"><span class="number">18</span></span><br><span class="line"><span class="number">19</span></span><br><span class="line"><span class="number">20</span></span><br><span class="line"><span class="number">21</span></span><br><span class="line"><span class="number">22</span></span><br><span class="line"><span class="number">23</span></span><br><span class="line"><span class="number">24</span></span><br><span class="line"><span class="number">25</span></span><br><span class="line"><span class="number">26</span></span><br><span class="line"><span class="number">27</span></span><br><span class="line"><span class="number">28</span></span><br><span class="line"><span class="number">29</span></span><br><span class="line"><span class="number">30</span></span><br><span class="line"><span class="number">31</span></span><br><span class="line"><span class="number">32</span></span><br><span class="line"><span class="number">33</span></span><br><span class="line"><span class="number">34</span></span><br><span class="line"><span class="number">35</span></span><br><span class="line"><span class="number">36</span></span><br><span class="line"><span class="number">37</span></span><br><span class="line"><span class="number">38</span></span><br><span class="line"><span class="number">39</span></span><br><span class="line"><span class="number">40</span></span><br><span class="line"><span class="number">41</span></span><br><span class="line"><span class="number">42</span></span><br><span class="line"><span class="number">43</span></span><br><span class="line"><span class="number">44</span></span><br><span class="line"><span class="number">45</span></span><br><span class="line"><span class="number">46</span></span><br><span class="line"><span class="number">47</span></span><br><span class="line"><span class="number">48</span></span><br><span class="line"><span class="number">49</span></span><br><span class="line"><span class="number">50</span></span><br><span class="line"><span class="number">51</span></span><br><span class="line"><span class="number">52</span></span><br><span class="line"><span class="number">53</span></span><br><span class="line"><span class="number">54</span></span><br><span class="line"><span class="number">55</span></span><br><span class="line"><span class="number">56</span></span><br><span class="line"><span class="number">57</span></span><br><span class="line"><span class="number">58</span></span><br><span class="line"><span class="number">59</span></span><br><span class="line"><span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">ss = s.split(<span class="string">&quot; &quot;</span>)<span class="comment">;</span></span><br><span class="line"><span class="keyword">for</span> c in ss:</span><br><span class="line"><span class="keyword">for</span> k in codebook.keys():</span><br><span class="line"><span class="keyword">if</span> codebook[k] == c:</span><br><span class="line">cipher+=k</span><br><span class="line"><span class="keyword">print</span>(cipher)</span><br><span class="line"><span class="keyword">break</span><span class="comment">;</span></span><br></pre></td></tr></table></figure>
+
+<p>有时候可以观察出来</p>
+<p><img src="https://bbling.cc/wp-content/uploads/2024/09/image-14.png" alt="img"></p>
+<p>图谱可以看到flag</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://1.94.234.244">爱吃玉米常</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://1.94.234.244/2024/11/25/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B/">http://1.94.234.244/2024/11/25/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E7%AB%9E%E8%B5%9B/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://1.94.234.244" target="_blank">LinBlog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/ctf/">ctf</a><a class="post-meta__tags" href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</a><a class="post-meta__tags" href="/tags/%E5%86%99%E9%9A%90%E6%9C%AF/">写隐术</a></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2024/11/27/c%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="c语言学习笔记"><img class="cover" src="https://bu.dusays.com/2024/12/14/675d9c1eb90e7.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">c语言学习笔记</div></div><div class="info-2"><div class="info-item-1">随机数的使用随机数rand 在使用之前需要引用&lt;stdlib.h&gt;standard library标准库，并且在使用前需要先设置随机数种子。  srand(1)；设置种子为1 int num = rand();调用随机数  需注意C语言中的随机数，并不是随机的，而是根据种子设置的数值进行数学公式计算 公式为int num1=(31*num0+13)%100; 123456789#include &lt;stdio.h&gt;#include &lt;stdlib.h&gt;int main() &#123;	srand(1);//1设置种子		int num = rand();//2获取随机数		//输出打印		printf(&quot;%d\n&quot;, num);	return 0;&#125;   可以看到随机数是根据种子一直固定不变的 这样的随机数并不是我们想要要的，我们需要让他每次计算的数值都并不一样，所以我们需要让种子一直更换，能完成更换的数值就是时间time 1srand(time(NULL));  在用time之前也需要引用#include...</div></div></div></a><a class="pagination-related" href="/2024/11/25/C%E4%BE%8B%E9%A2%98/" title="C例题"><img class="cover" src="https://bu.dusays.com/2024/12/14/675d9c1f8390e.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">C例题</div></div><div class="info-2"><div class="info-item-1">判断数组中最大值要求： 输入多个整数（一行），输出其中最大的整数。输入格式：一行多个整数，用空格隔开。输出格式：一个整数。输入输出样例1 2 3 4 5 6输出6说明&#x2F;提示：最大的数为 6，即输出 6。 1234567891011#include&lt;stdio.h&gt;int main()&#123;      int maxnum = 0;     int num = 0;    while(scanf(&quot;%d&quot;,&amp;num)!=EOF)&#123;//读到结尾停止读取        if(num&gt;maxnum)  //判断是否为最大值            maxnum=num;      &#125;      printf(&quot;%d\n&quot;,maxnum);      return 0;  &#125;  求n的阶乘要求： 输入：5。输出：120。 1234567891011121314#include &lt;stdio.h&gt;int b(int a);int main()&#123;int...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2024/12/03/%E5%AE%89%E5%85%A8%E6%BC%8F%E6%B4%9E%E5%BD%92%E6%A1%A3/" title="安全漏洞归档"><img class="cover" src="/images/default_cover/1.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-12-03</div><div class="info-item-2">安全漏洞归档</div></div><div class="info-2"><div class="info-item-1">CVE-2014-6271漏洞 80端口开放 443端口开放 apache版本位2.2.15  利用条件：  80端口需要开放且版本为2.2.15 443端口需要开放且版本为2.2.15 网站根目录需要存在&#x2F;cgi-bin&#x2F;bin文件  可以通过nmap脚本http-shellshock.nse进行扫描，查看是否存在此漏洞  搜索漏洞利用模块  设置参数  </div></div></div></a><a class="pagination-related" href="/2024/12/03/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8A%A0%E5%9B%BA/" title="数据库加固"><img class="cover" src="/images/default_cover/3.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-12-03</div><div class="info-item-2">数据库加固</div></div><div class="info-2"><div class="info-item-1">1删除默认数据库test修改&#x2F;etc&#x2F;my.ini配置文件，添加skip-grant-tables跳过密码验证 12345vim /etc/my.ini   //修改配置文件skip-grant-tables  //末尾添加 systemctl restart mysqld  //重启mysqld服务   重置密码完成，用新密码Admin123登陆即可  2改变默认mysql管理员为superroot 3使用mysql内置md5加密函数加密用户user1的密码为(P@ssw0rd1!) 注意：mysql7以下版本存放密码的字段为password，mysql7以上存放密码的字段变成了authentication_string 此环境为mysql8.0，可以通过select vesion()查看 12345select version() //查看版本 update user set authentication string=md5(&#x27;P@ssw0rd1!&#x27;) where user=&#x27;user1&#x27;;select...</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://bu.dusays.com/2024/12/14/675d102b421a9.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">爱吃玉米常</div><div class="author-info-description">离目标越来越近</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">23</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">27</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">19</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/linstars"><i class="iconfont icon-github"></i><span>关注我</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/linstars" target="_blank" title="Github"><i class="iconfont icon-GitHub" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:3503460154@qq.com" target="_blank" title="Email"><i class="iconfont icon-email" style="color: #4a7dbe;"></i></a><a class="social-icon" href="https://space.bilibili.com/506230312" target="_blank" title="Bilibili"><i class="iconfont icon-bilibili-fill" style="color: #fb7299;"></i></a><a class="social-icon" href="/images/img/wechat.jpg" target="_blank" title="wechat"><i class="iconfont icon-weixin" style="color: #28db70;"></i></a><a class="social-icon" href="tencent://message/?uin=757453794&amp;Site=&amp;Menu=yes" target="_blank" title="QQ"><i class="iconfont icon-qq" style="color: #19b4d9;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content"><center><b>---本站主域名---<br><a target="_blank" rel="noopener" href="https://bbling.cc">bbling.cc</a>&nbsp&nbsp||&nbsp&nbsp<a target="_blank" rel="noopener" href="https://bbling.cc">前往主域名</a><br>---本站副域名---<br><a target="_blank" rel="noopener" href="https://blog.bbling.cc">blog.bbling.cc</a>&nbsp&nbsp||&nbsp&nbsp<a target="_blank" rel="noopener" href="https://blog.bbling.cc">当前为副域名</a></b><br></center></div></div><div class="card-widget"><div class="item-headline"><i class="iconfont icon-tongjijisuan"></i><span>网站统计</span></div><div class="item-content"><script id="LA-DATA-WIDGET" crossorigin="anonymous" charset="UTF-8" src="https://v6-widget.51.la/v6/Kf60FlZoFC1IdgEb/quote.js?theme=,#333333,#999999,#333333,,,14&col=true&f=14"></script></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Nmap%E5%B7%A5%E5%85%B7"><span class="toc-number">1.</span> <span class="toc-text">Nmap工具</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP%E6%89%AB%E6%8F%8F"><span class="toc-number">1.1.</span> <span class="toc-text">TCP扫描</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%A6%E7%BB%86TCP%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B"><span class="toc-number">1.2.</span> <span class="toc-text">详细TCP三次握手</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UDP%E6%89%AB%E6%8F%8F"><span class="toc-number">1.3.</span> <span class="toc-text">UDP扫描</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#icmp%E5%92%8Cping%E6%89%AB%E6%8F%8F"><span class="toc-number">1.4.</span> <span class="toc-text">icmp和ping扫描</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#sqlmap%E5%B8%B8%E7%94%A8%E5%8F%82%E6%95%B0"><span class="toc-number">2.</span> <span class="toc-text">sqlmap常用参数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%9F%BA%E6%9C%AC%E5%8F%82%E6%95%B0"><span class="toc-number">2.0.1.</span> <span class="toc-text">1.基本参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A3%80%E6%B5%8B%E9%80%89%E9%A1%B9"><span class="toc-number">2.0.2.</span> <span class="toc-text">检测选项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%A3%80%E6%B5%8B%E9%80%89%E9%A1%B9"><span class="toc-number">2.0.3.</span> <span class="toc-text">2.检测选项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%9D%82"><span class="toc-number">2.0.4.</span> <span class="toc-text">3.杂</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E7%BB%95%E8%BF%87"><span class="toc-number">2.0.5.</span> <span class="toc-text">4. 绕过</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E8%AE%A4%E8%AF%81%E5%8F%82%E6%95%B0"><span class="toc-number">2.0.6.</span> <span class="toc-text">5.认证参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E8%BE%93%E5%87%BA%E6%8E%A7%E5%88%B6"><span class="toc-number">2.0.7.</span> <span class="toc-text">6. 输出控制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-%E5%AE%9E%E4%BE%8B"><span class="toc-number">2.0.8.</span> <span class="toc-text">7. 实例</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%91%A9%E6%96%AF%E5%AF%86%E7%A0%81%E9%9F%B3%E9%A2%91%E9%9A%90%E5%86%99"><span class="toc-number">3.</span> <span class="toc-text">摩斯密码音频隐写</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E5%85%B7%E8%A7%A3%E5%AF%86"><span class="toc-number">3.1.</span> <span class="toc-text">工具解密</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Python%E6%91%A9%E6%96%AF%E7%94%B5%E7%A0%81%E8%A7%A3%E5%AF%86"><span class="toc-number">3.2.</span> <span class="toc-text">Python摩斯电码解密</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/12/16/ubuntu%E5%AD%A6%E4%B9%A0%E6%96%87%E6%A1%A3/" title="Ubuntu学习文档"><img src="https://bu.dusays.com/2024/12/19/6763db749d936.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Ubuntu学习文档"/></a><div class="content"><a class="title" href="/2024/12/16/ubuntu%E5%AD%A6%E4%B9%A0%E6%96%87%E6%A1%A3/" title="Ubuntu学习文档">Ubuntu学习文档</a><time datetime="2024-12-16T10:59:31.000Z" title="发表于 2024-12-16 18:59:31">2024-12-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/15/hexo%E9%A1%B5%E8%84%9A%E6%B7%BB%E5%8A%A0%E9%B1%BC%E5%A1%98/" title="hexo页脚添加鱼塘"><img src="/images/hexo/index_img.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="hexo页脚添加鱼塘"/></a><div class="content"><a class="title" href="/2024/12/15/hexo%E9%A1%B5%E8%84%9A%E6%B7%BB%E5%8A%A0%E9%B1%BC%E5%A1%98/" title="hexo页脚添加鱼塘">hexo页脚添加鱼塘</a><time datetime="2024-12-15T01:55:13.000Z" title="发表于 2024-12-15 09:55:13">2024-12-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/14/windows%E8%84%9A%E6%9C%AC%E8%87%AA%E5%8A%A8%E5%8E%8B%E7%BC%A9%E5%8C%85/" title="windows脚本自动压缩包"><img src="https://bu.dusays.com/2024/12/14/675d800fb6761.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="windows脚本自动压缩包"/></a><div class="content"><a class="title" href="/2024/12/14/windows%E8%84%9A%E6%9C%AC%E8%87%AA%E5%8A%A8%E5%8E%8B%E7%BC%A9%E5%8C%85/" title="windows脚本自动压缩包">windows脚本自动压缩包</a><time datetime="2024-12-14T12:53:23.000Z" title="发表于 2024-12-14 20:53:23">2024-12-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/14/hexo%E6%90%AD%E5%BB%BA%E5%AE%9D%E5%A1%94%E6%9C%8D%E5%8A%A1%E5%99%A8/" title="hexo搭建宝塔服务器"><img src="https://bu.dusays.com/2024/12/14/675d57804a8f4.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="hexo搭建宝塔服务器"/></a><div class="content"><a class="title" href="/2024/12/14/hexo%E6%90%AD%E5%BB%BA%E5%AE%9D%E5%A1%94%E6%9C%8D%E5%8A%A1%E5%99%A8/" title="hexo搭建宝塔服务器">hexo搭建宝塔服务器</a><time datetime="2024-12-14T10:27:16.000Z" title="发表于 2024-12-14 18:27:16">2024-12-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/13/1panel%E6%90%AD%E5%BB%BAhalo/" title="1panel搭建halo"><img src="https://bu.dusays.com/2024/12/14/675da3cfb02d3.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="1panel搭建halo"/></a><div class="content"><a class="title" href="/2024/12/13/1panel%E6%90%AD%E5%BB%BAhalo/" title="1panel搭建halo">1panel搭建halo</a><time datetime="2024-12-13T09:17:58.000Z" title="发表于 2024-12-13 17:17:58">2024-12-13</time></div></div></div></div></div></div></main><footer id="footer" style="background: transparent;"><div id="footer-wrap"><div id="ft"><div class="ft-item-1"><div class="t-top"><div class="t-t-l"><p class="ft-t t-l-t">说点什么</p><div class="bg-ad"><div>（经过一下午的百般周折，也是成功将本网页从wordpress换成了hexo并部署到服务器，目前使用的宝塔搭配hexo静态仓库部署）</div><div class="btn-xz-box"><a class="btn-xz" href="/air-conditioner/">前往吹空调、聊天~</a></div></div></div><div class="t-t-r"><p class="ft-t t-l-t">修仙导航</p><ul class="ft-links"><li><a target="_blank" rel="noopener" href="https://bbling.cc/2024/12/02/hexo%E6%90%AD%E5%BB%BA/">建站指南</a><a target="_blank" rel="noopener" href="https://7bu.top/">推荐图床</a></li><li><a target="_blank" rel="noopener" href="https://fontawesome.com/">图标库</a><a target="_blank" rel="noopener" href="https://tinypng.com/">在线压缩图片</a></li><li><a target="_blank" rel="noopener" href="https://fontawesome.dashgame.com/">图标库2</a><a href="/archives/">文章归档</a></li><li><a href="/categories/">文章分类</a><a href="/tags/">文章标签</a></li><li><a target="_blank" rel="noopener" href="https://v6.51.la/">网站统计</a><a target="_blank" rel="noopener" href="https://www.bilibili.com/">我的追番</a></li><li><a href="/shuoshuo/">随手记</a><a href="/gallery/">一些壁纸</a></li></ul></div></div></div><div class="ft-item-2"><p class="ft-t">推荐友链</p><div class="ft-img-group"><div class="img-group-item"><a target="_blank" rel="noopener" href="https://cnhuazhu.top/butterfly/"><img src="https://bu.dusays.com/2024/12/22/6767ba6eb5ee2.jpg" alt="Hexo "/></a></div><div class="img-group-item"><a target="_blank" rel="noopener" href="https://fomal.cc/"><img src="https://bu.dusays.com/2024/12/22/6767babe00d2e.jpg" alt="Fomalhaut🥝"/></a></div><div class="img-group-item"><a target="_blank" rel="noopener" href="https://haiyong.site/"><img src="https://bu.dusays.com/2024/12/22/6767badb1aa03.png" alt="热于分享海拥"/></a></div><div class="img-group-item"><a target="_blank" rel="noopener" href="https://razeen.me/"><img src="https://bu.dusays.com/2024/12/22/6767baf98eba7.png" alt="一位爱折腾的程序员。Razeen"/></a></div><div class="img-group-item"><a target="_blank" rel="noopener" href="https://fe32.top/"><img src="https://bu.dusays.com/2022/05/02/626f92e193879.jpg" alt="唐志远"/></a></div><div class="img-group-item"><a target="_blank" rel="noopener" href="https://android99.com/"><img src="https://android99.com/img/avatar.png" alt="边缘矩阵"/></a></div><div class="img-group-item"><a target="_blank" rel="noopener" href="https://blog.captainz.cc/posts/hexo_butterfly_top_img.html"><img src="https://blog.captainz.cc/picture/0.webp" alt="闪闪发光的ZZZ"/></a></div><div class="img-group-item"><a target="_blank" rel="noopener" href="https://blog.anheyu.com/"><img src="https://npm.elemecdn.com/anzhiyu-blog-static@1.0.4/img/avatar.jpg" alt="安知鱼"/></a></div></div></div></div><div class="copyright">&copy;2020 - 2024  <i id="heartbeat" class="fa fas fa-heartbeat"></i> 爱吃玉米常</div><div class="footer_custom_text"><img src="/img/icp.png"><a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">豫ICP备2024063535号-1</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button><button id="go-down" type="button" title="直达底部" onclick="btf.scrollToDest(document.body.scrollHeight, 500)"><i class="fas fa-arrow-down"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/node-snackbar/0.1.16/snackbar.min.js"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.isShuoshuo
+  const option = null
+
+  const initValine = (el, path) => {
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyValine = () => {
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+
+    const valineConfig = {
+      el: '#vcomment',
+      appId: '3eWZMlM9tT0NRgGJ577h51M1-gzGzoHsz',
+      appKey: 'K8Eklo65nqNDps1YU0Q59ZrX',
+      avatar: 'monsterid',
+      serverURLs: 'bbling.cc',
+      emojiMaps: "",
+      visitor: false,
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || window.location.pathname
+    }
+
+    new Valine(valineConfig)
+  }
+
+  const loadValine = async (el, path) => {
+    if (typeof Valine === 'function') {
+      initValine(el, path)
+    } else {
+      await btf.getScript('https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/valine/1.4.16/Valine.min.js')
+      initValine(el, path)
+    }
+  }
+
+  if (isShuoshuo) {
+    'Valine' === 'Valine'
+      ? window.shuoshuoComment = { loadComment: loadValine }
+      : window.loadOtherComment = loadValine
+    return
+  }
+
+  if ('Valine' === 'Valine' || !false) {
+    if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+    else setTimeout(loadValine, 0)
+  } else {
+    window.loadOtherComment = loadValine
+  }
+})()</script></div><script defer data-pjax src="/js/cat.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
