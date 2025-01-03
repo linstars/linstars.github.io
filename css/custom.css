@@ -287,3 +287,13 @@ h6::before {
   }
 }
 /* 头像呼吸灯end */
+
+
+/* 导航栏居中 */
+#nav .menus_items {
+  position: absolute;
+  width: fit-content;
+  left: 50%;
+  transform: translateX(-50%);
+}
+/* 导航栏居中end */
