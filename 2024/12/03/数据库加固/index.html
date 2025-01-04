@@ -1,0 +1,220 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>数据库加固 | LinBlog</title><meta name="author" content="Linstars"><meta name="copyright" content="Linstars"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="CTF加固数据的题目和实现方法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据库加固">
+<meta property="og:url" content="http://1.94.234.244/2024/12/03/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8A%A0%E5%9B%BA/index.html">
+<meta property="og:site_name" content="LinBlog">
+<meta property="og:description" content="CTF加固数据的题目和实现方法">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://bu.dusays.com/2024/12/30/6772269a43c49.png">
+<meta property="article:published_time" content="2024-12-03T10:54:30.000Z">
+<meta property="article:modified_time" content="2025-01-04T03:10:09.311Z">
+<meta property="article:author" content="Linstars">
+<meta property="article:tag" content="ctf">
+<meta property="article:tag" content="mysql">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://bu.dusays.com/2024/12/30/6772269a43c49.png"><link rel="shortcut icon" href="https://bu.dusays.com/2024/12/14/675d55bba492a.png"><link rel="canonical" href="http://1.94.234.244/2024/12/03/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8A%A0%E5%9B%BA/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/font-awesome/6.0.0/css/all.min.css"><link rel="stylesheet" href="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/node-snackbar/0.1.16/snackbar.min.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":195,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: {"chs_to_cht":"已切换为繁体中文","cht_to_chs":"已切换为简体中文","day_to_night":"已切换为深色模式","night_to_day":"已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '数据库加固',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  isShuoshuo: false
+}</script><link rel="stylesheet" href="/css/custom.css"><link rel="stylesheet" href="/css/cat.css"><link rel="stylesheet" href="/css/iconfont.css"><div id="myscoll"></div><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg" style="background-image: url(https://bu.dusays.com/2025/01/03/6777930c9d37b.jpg);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://bu.dusays.com/2024/12/14/675d102b421a9.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">26</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">19</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fas fa-cubes"></i><span> 说说</span></a></li><li><a class="site-page child" href="/air-conditioner/"><i class="fa-fw iconfont icon-kongtiao"></i><span> 小空调</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://bu.dusays.com/2024/12/30/6772269a43c49.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">LinBlog</span></a><a class="nav-page-title" href="/"><span class="site-name">数据库加固</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fas fa-cubes"></i><span> 说说</span></a></li><li><a class="site-page child" href="/air-conditioner/"><i class="fa-fw iconfont icon-kongtiao"></i><span> 小空调</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">数据库加固</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-12-03T10:54:30.000Z" title="发表于 2024-12-03 18:54:30">2024-12-03</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-01-04T03:10:09.311Z" title="更新于 2025-01-04 11:10:09">2025-01-04</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/2024/12/03/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8A%A0%E5%9B%BA/#post-comment" itemprop="discussionUrl"><span class="valine-comment-count" data-xid="/2024/12/03/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8A%A0%E5%9B%BA/" itemprop="commentCount"><i class="fa-solid fa-spinner fa-spin"></i></span></a></span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h2 id="1删除默认数据库test"><a href="#1删除默认数据库test" class="headerlink" title="1删除默认数据库test"></a>1删除默认数据库test</h2><p>修改&#x2F;etc&#x2F;my.ini配置文件，添加skip-grant-tables跳过密码验证</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/my.ini   //修改配置文件</span><br><span class="line"></span><br><span class="line">skip-grant-tables  //末尾添加</span><br><span class="line"> </span><br><span class="line">systemctl restart mysqld  //重启mysqld服务</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://bu.dusays.com/2024/12/14/675d9db231a41.png" alt="img"></p>
+<p>重置密码完成，用新密码Admin123登陆即可</p>
+<p><img src="https://bu.dusays.com/2024/12/14/675d9db854997.png" alt="img"></p>
+<h2 id="2改变默认mysql管理员为superroot"><a href="#2改变默认mysql管理员为superroot" class="headerlink" title="2改变默认mysql管理员为superroot"></a>2改变默认mysql管理员为superroot</h2><p><img src="https://bu.dusays.com/2024/12/14/675d9db9d44eb.png" alt="img"></p>
+<p>3使用mysql内置md5加密函数加密用户user1的密码为(P@ssw0rd1!)</p>
+<p>注意：mysql7以下版本存放密码的字段为password，mysql7以上存放密码的字段变成了authentication_string</p>
+<p>此环境为mysql8.0，可以通过select vesion()查看</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">select version() //查看版本</span><br><span class="line"> </span><br><span class="line">update user set authentication string=md5(&#x27;P@ssw0rd1!&#x27;) where user=&#x27;user1&#x27;;</span><br><span class="line"></span><br><span class="line">select authentication string from user where user=&#x27;user1&#x27;;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://bu.dusays.com/2024/12/14/675d9dbbab96f.png" alt="img"></p>
+<h2 id="4赋予user1用户对数据库所有表只有select、insert、delete、update权限"><a href="#4赋予user1用户对数据库所有表只有select、insert、delete、update权限" class="headerlink" title="4赋予user1用户对数据库所有表只有select、insert、delete、update权限"></a>4赋予user1用户对数据库所有表只有select、insert、delete、update权限</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select host,user,authentication_string from user where user=&#x27;user1&#x27;;</span><br><span class="line"> </span><br><span class="line">grant select,insert,delete,update on *.* to &#x27;user1&#x27;@&#x27;localhost&#x27;;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://bu.dusays.com/2024/12/14/675d9dbd3566b.png" alt="img"></p>
+<h2 id="5对忘记mysql数据库SuperRoot管理员密码进行重置操作"><a href="#5对忘记mysql数据库SuperRoot管理员密码进行重置操作" class="headerlink" title="5对忘记mysql数据库SuperRoot管理员密码进行重置操作"></a>5对忘记mysql数据库SuperRoot管理员密码进行重置操作</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter user &#x27;SuperRoot&#x27;@&#x27;localhost&#x27; identified by &#x27;Qwer1234!@#$&#x27;;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8A%A0%E5%9B%BA/image-6.png" alt="img"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://1.94.234.244">Linstars</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://1.94.234.244/2024/12/03/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8A%A0%E5%9B%BA/">http://1.94.234.244/2024/12/03/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8A%A0%E5%9B%BA/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://1.94.234.244" target="_blank">LinBlog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/ctf/">ctf</a><a class="post-meta__tags" href="/tags/mysql/">mysql</a></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2024/12/03/linux%E5%B8%B8%E7%94%A8%E5%8E%8B%E7%BC%A9%E5%91%BD%E4%BB%A4/" title="linux常用压缩命令"><img class="cover" src="https://bu.dusays.com/2024/12/30/6772269341066.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">linux常用压缩命令</div></div><div class="info-2"><div class="info-item-1">记录tar，7z，zip，rar的各种压缩命令</div></div></div></a><a class="pagination-related" href="/2024/12/03/windows%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6%E6%97%A0%E6%9D%83%E9%99%90/" title="windows删除文件无权限"><img class="cover" src="https://bu.dusays.com/2024/12/14/675d9c1f84dd6.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">windows删除文件无权限</div></div><div class="info-2"><div class="info-item-1">widnows删除文件没有权限？谁才是大哥</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2024/11/25/CTF%E7%AB%9E%E8%B5%9B/" title="CTF竞赛"><img class="cover" src="https://bu.dusays.com/2024/12/30/6772269a0dcf0.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-11-25</div><div class="info-item-2">CTF竞赛</div></div><div class="info-2"><div class="info-item-1">CTF是一种网络安全竞赛形式，主要通过解密、逆向工程、网络攻击、隐写术等方式解决各种网络安全挑战。CTF题型通常分为Jeopardy（解题型）和Attack-Defense（攻防型）两大类Jeopardy题目常见分类有Web、Crypto、Pwn、Reverse....</div></div></div></a><a class="pagination-related" href="/2025/01/02/ICMP%E6%B4%AA%E6%B0%B4%E6%95%B0%E6%8D%AE%E5%8C%85/" title="ICMP洪水数据包"><img class="cover" src="https://bu.dusays.com/2024/12/30/677226a31d7cf.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-01-02</div><div class="info-item-2">ICMP洪水数据包</div></div><div class="info-2"><div class="info-item-1">DDOS实现方法</div></div></div></a><a class="pagination-related" href="/2024/12/03/%E5%AE%89%E5%85%A8%E6%BC%8F%E6%B4%9E%E5%BD%92%E6%A1%A3/" title="安全漏洞归档"><img class="cover" src="https://bu.dusays.com/2024/12/30/677226933903e.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-12-03</div><div class="info-item-2">安全漏洞归档</div></div><div class="info-2"><div class="info-item-1">归纳一下自己复现的漏洞，好多都没写。</div></div></div></a><a class="pagination-related" href="/2024/12/08/MySql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="MySql学习笔记"><img class="cover" src="https://bu.dusays.com/2024/12/14/675da32d2552f.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-12-08</div><div class="info-item-2">MySql学习笔记</div></div><div class="info-2"><div class="info-item-1">mysql的学习笔记</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://bu.dusays.com/2024/12/14/675d102b421a9.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Linstars</div><div class="author-info-description">离目标越来越近</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">26</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">19</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/linstars"><i class="iconfont icon-github"></i><span>关注我</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/linstars" target="_blank" title="Github"><i class="iconfont icon-GitHub" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:3503460154@qq.com" target="_blank" title="Email"><i class="iconfont icon-email" style="color: #4a7dbe;"></i></a><a class="social-icon" href="https://space.bilibili.com/506230312" target="_blank" title="Bilibili"><i class="iconfont icon-bilibili-fill" style="color: #fb7299;"></i></a><a class="social-icon" href="/images/img/wechat.jpg" target="_blank" title="wechat"><i class="iconfont icon-weixin" style="color: #28db70;"></i></a><a class="social-icon" href="tencent://message/?uin=757453794&amp;Site=&amp;Menu=yes" target="_blank" title="QQ"><i class="iconfont icon-qq" style="color: #19b4d9;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content"><center><b>---本站主域名---<br><a target="_blank" rel="noopener" href="https://bbling.cc">bbling.cc</a>&nbsp&nbsp||&nbsp&nbsp<a target="_blank" rel="noopener" href="https://bbling.cc">前往主域名</a><br>---本站其他域名---<br><a target="_blank" rel="noopener" href="https://blog.bbling.cc">blog.bbling.cc</a>&nbsp&nbsp||&nbsp&nbsp<a target="_blank" rel="noopener" href="https://blog.bbling.cc">点击前往</a></b><br><b><a target="_blank" rel="noopener" href="https://aaling.xin">aaling.xin</a>&nbsp&nbsp||&nbsp&nbsp<a target="_blank" rel="noopener" href="https://aaling.xin">点击前往</a></b></center></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E5%88%A0%E9%99%A4%E9%BB%98%E8%AE%A4%E6%95%B0%E6%8D%AE%E5%BA%93test"><span class="toc-number">1.</span> <span class="toc-text">1删除默认数据库test</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E6%94%B9%E5%8F%98%E9%BB%98%E8%AE%A4mysql%E7%AE%A1%E7%90%86%E5%91%98%E4%B8%BAsuperroot"><span class="toc-number">2.</span> <span class="toc-text">2改变默认mysql管理员为superroot</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4%E8%B5%8B%E4%BA%88user1%E7%94%A8%E6%88%B7%E5%AF%B9%E6%95%B0%E6%8D%AE%E5%BA%93%E6%89%80%E6%9C%89%E8%A1%A8%E5%8F%AA%E6%9C%89select%E3%80%81insert%E3%80%81delete%E3%80%81update%E6%9D%83%E9%99%90"><span class="toc-number">3.</span> <span class="toc-text">4赋予user1用户对数据库所有表只有select、insert、delete、update权限</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5%E5%AF%B9%E5%BF%98%E8%AE%B0mysql%E6%95%B0%E6%8D%AE%E5%BA%93SuperRoot%E7%AE%A1%E7%90%86%E5%91%98%E5%AF%86%E7%A0%81%E8%BF%9B%E8%A1%8C%E9%87%8D%E7%BD%AE%E6%93%8D%E4%BD%9C"><span class="toc-number">4.</span> <span class="toc-text">5对忘记mysql数据库SuperRoot管理员密码进行重置操作</span></a></li></ol></div></div></div></div></main><footer id="footer" style="background: transparent;"><div id="footer-wrap"><div id="ft"><div class="ft-item-1"><div class="t-top"><div class="t-t-l"><p class="ft-t t-l-t">说点什么</p><div class="bg-ad"><div>（经过一下午的百般周折，也是成功将本网页从wordpress换成了hexo并部署到服务器，目前使用的宝塔搭配hexo静态仓库部署）</div><div class="btn-xz-box"><a class="btn-xz" href="/air-conditioner/">前往吹空调、聊天~</a></div></div></div><div class="t-t-r"><p class="ft-t t-l-t">修仙导航</p><ul class="ft-links"><li><a target="_blank" rel="noopener" href="https://bbling.cc/2024/12/02/hexo%E6%90%AD%E5%BB%BA/">建站指南</a><a target="_blank" rel="noopener" href="https://7bu.top/">推荐图床</a></li><li><a target="_blank" rel="noopener" href="https://fontawesome.com/">图标库</a><a target="_blank" rel="noopener" href="https://tinypng.com/">在线压缩图片</a></li><li><a target="_blank" rel="noopener" href="https://fontawesome.dashgame.com/">图标库2</a><a href="/archives/">文章归档</a></li><li><a href="/categories/">文章分类</a><a href="/tags/">文章标签</a></li><li><a target="_blank" rel="noopener" href="https://v6.51.la/">网站统计</a><a target="_blank" rel="noopener" href="https://www.bilibili.com/">我的追番</a></li><li><a href="/shuoshuo/">随手记</a><a href="/gallery/">一些壁纸</a></li></ul></div></div></div><div class="ft-item-2"><p class="ft-t">推荐友链</p><div class="ft-img-group"><div class="img-group-item"><a target="_blank" rel="noopener" href="https://cnhuazhu.top/butterfly/"><img src="https://bu.dusays.com/2024/12/22/6767ba6eb5ee2.jpg" alt="Hexo "/></a></div><div class="img-group-item"><a target="_blank" rel="noopener" href="https://fomal.cc/"><img src="https://bu.dusays.com/2024/12/22/6767babe00d2e.jpg" alt="Fomalhaut🥝"/></a></div><div class="img-group-item"><a target="_blank" rel="noopener" href="https://haiyong.site/"><img src="https://bu.dusays.com/2024/12/22/6767badb1aa03.png" alt="热于分享海拥"/></a></div><div class="img-group-item"><a target="_blank" rel="noopener" href="https://razeen.me/"><img src="https://bu.dusays.com/2024/12/22/6767baf98eba7.png" alt="一位爱折腾的程序员。Razeen"/></a></div><div class="img-group-item"><a target="_blank" rel="noopener" href="https://fe32.top/"><img src="https://bu.dusays.com/2022/05/02/626f92e193879.jpg" alt="唐志远"/></a></div><div class="img-group-item"><a target="_blank" rel="noopener" href="https://android99.com/"><img src="https://android99.com/img/avatar.png" alt="边缘矩阵"/></a></div><div class="img-group-item"><a target="_blank" rel="noopener" href="https://blog.captainz.cc/posts/hexo_butterfly_top_img.html"><img src="https://blog.captainz.cc/picture/0.webp" alt="闪闪发光的ZZZ"/></a></div><div class="img-group-item"><a target="_blank" rel="noopener" href="https://blog.anheyu.com/"><img src="https://npm.elemecdn.com/anzhiyu-blog-static@1.0.4/img/avatar.jpg" alt="安知鱼"/></a></div></div></div></div><div class="copyright">&copy;2020 - 2025  <i id="heartbeat" class="fa fas fa-heartbeat"></i> Linstars</div><div class="footer_custom_text"><img src="/img/icp.png"><a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">豫ICP备2024063535号-1</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button><button id="go-down" type="button" title="直达底部" onclick="btf.scrollToDest(document.body.scrollHeight, 500)"><i class="fas fa-arrow-down"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/node-snackbar/0.1.16/snackbar.min.js"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.isShuoshuo
+  const option = null
+
+  const initValine = (el, path) => {
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyValine = () => {
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+
+    const valineConfig = {
+      el: '#vcomment',
+      appId: '3eWZMlM9tT0NRgGJ577h51M1-gzGzoHsz',
+      appKey: 'K8Eklo65nqNDps1YU0Q59ZrX',
+      avatar: 'monsterid',
+      serverURLs: 'bbling.cc',
+      emojiMaps: "",
+      visitor: false,
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || window.location.pathname
+    }
+
+    new Valine(valineConfig)
+  }
+
+  const loadValine = async (el, path) => {
+    if (typeof Valine === 'function') {
+      initValine(el, path)
+    } else {
+      await btf.getScript('https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/valine/1.4.16/Valine.min.js')
+      initValine(el, path)
+    }
+  }
+
+  if (isShuoshuo) {
+    'Valine' === 'Valine'
+      ? window.shuoshuoComment = { loadComment: loadValine }
+      : window.loadOtherComment = loadValine
+    return
+  }
+
+  if ('Valine' === 'Valine' || !false) {
+    if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+    else setTimeout(loadValine, 0)
+  } else {
+    window.loadOtherComment = loadValine
+  }
+})()</script></div><script defer data-pjax src="/js/cat.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
